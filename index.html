@@ -3,1671 +3,421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RedOak Restaurant | Aesthetic Dining in Balaghat</title>
-<meta name="description" content="RedOak Restaurant – Premium casual dining in Balaghat, MP. Dine-in, pickup & delivery. ₹200–₹400 per person. Open till 11 PM.">
+<title>RedOak Restaurant | Best Dining in Balaghat</title>
+<meta name="description" content="RedOak Restaurant - Best restaurant in Balaghat MP. Family dining, pizza, Indian food. Dine-in, pickup & delivery. Rs 200-400 per person. Open till 11 PM.">
+<meta name="keywords" content="best restaurant in Balaghat, family restaurant Balaghat, pizza in Balaghat, restaurant near Gondia Balaghat road, RedOak restaurant Balaghat">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"RedOak Restaurant","telephone":"+918770803523","priceRange":"Rs-Rs","servesCuisine":["Indian","Chinese","Pizza"],"address":{"@type":"PostalAddress","streetAddress":"Gondia-Balaghat Rd, opposite Government School Ground, Chitragupt Nagar","addressLocality":"Balaghat","addressRegion":"Madhya Pradesh","postalCode":"481001","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"11:00","closes":"23:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.3","reviewCount":"113"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --red: #8B0000;
-    --red-bright: #C0392B;
-    --red-glow: rgba(139,0,0,0.4);
-    --oak: #6B4226;
-    --cream: #F5E6D3;
-    --cream-dim: #e8d5be;
-    --charcoal: #111010;
-    --dark: #0A0808;
-    --mid: #1A1210;
-    --gold: #C9A84C;
-    --gold-dim: rgba(201,168,76,0.15);
-    --text: #F0E0C8;
-    --text-dim: #9A8070;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--dark);
-    color: var(--text);
-    font-family: 'Cormorant Garamond', serif;
-    overflow-x: hidden;
-    cursor: none;
-  }
-
-  /* Custom cursor */
-  .cursor {
-    position: fixed;
-    width: 8px; height: 8px;
-    background: var(--red-bright);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%,-50%);
-    transition: width 0.15s, height 0.15s, background 0.2s;
-  }
-  .cursor-ring {
-    position: fixed;
-    width: 36px; height: 36px;
-    border: 1px solid rgba(139,0,0,0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%,-50%);
-    transition: all 0.12s ease-out;
-  }
-  body:hover .cursor { opacity: 1; }
-
-  /* Noise texture overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.6;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 900;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 4rem;
-    background: linear-gradient(to bottom, rgba(10,8,8,0.95), transparent);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(139,0,0,0.15);
-    transition: all 0.4s;
-  }
-  nav.scrolled {
-    background: rgba(10,8,8,0.97);
-    border-bottom-color: rgba(139,0,0,0.3);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--cream);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--red-bright); }
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.3s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0; height: 1px;
-    background: var(--red-bright);
-    transition: width 0.3s;
-  }
-  .nav-links a:hover { color: var(--cream); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .nav-phone {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--gold);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    transition: color 0.3s;
-  }
-  .nav-phone:hover { color: var(--cream); }
-  .btn-nav {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.55rem 1.4rem;
-    background: var(--red);
-    color: var(--cream);
-    border: none;
-    text-decoration: none;
-    cursor: none;
-    transition: background 0.3s, box-shadow 0.3s;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  }
-  .btn-nav:hover {
-    background: var(--red-bright);
-    box-shadow: 0 0 24px var(--red-glow);
-  }
-
-  /* ── HERO ── */
-  #hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(139,0,0,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 30%, rgba(107,66,38,0.12) 0%, transparent 60%),
-      linear-gradient(135deg, #0A0808 0%, #130C0A 50%, #0A0808 100%);
-  }
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(139,0,0,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(139,0,0,0.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
-  }
-  .hero-accent-line {
-    position: absolute;
-    top: 0; left: 50%;
-    width: 1px; height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(139,0,0,0.3), transparent);
-    animation: pulse-line 3s ease-in-out infinite;
-  }
-  @keyframes pulse-line {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4rem;
-    padding-top: 8rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-  }
-  .hero-text { }
-  .hero-eyebrow {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--red-bright);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--red-bright);
-  }
-  .hero-h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3.5rem, 6vw, 6rem);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-  }
-  .hero-h1 em {
-    font-style: italic;
-    color: var(--red-bright);
-  }
-  .hero-h1 strong {
-    font-weight: 600;
-    display: block;
-  }
-  .hero-sub {
-    font-size: 1.15rem;
-    font-weight: 300;
-    color: var(--text-dim);
-    line-height: 1.7;
-    max-width: 420px;
-    margin-bottom: 2.5rem;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
-  }
-  .btn-primary {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    background: var(--red);
-    color: var(--cream);
-    text-decoration: none;
-    cursor: none;
-    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-    transition: all 0.3s;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .btn-primary:hover {
-    background: var(--red-bright);
-    box-shadow: 0 0 40px var(--red-glow), 0 0 80px rgba(139,0,0,0.15);
-  }
-  .btn-secondary {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    background: transparent;
-    color: var(--cream);
-    text-decoration: none;
-    cursor: none;
-    border: 1px solid rgba(240,224,200,0.25);
-    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .btn-secondary:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-  .hero-trust {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(240,224,200,0.08);
-  }
-  .trust-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
-  .trust-val {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    color: var(--gold);
-    font-weight: 400;
-  }
-  .trust-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
-  /* Hero right – decorative card */
-  .hero-visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hero-card {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    aspect-ratio: 3/4;
-    border: 1px solid rgba(139,0,0,0.3);
-    overflow: hidden;
-  }
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(135deg, rgba(139,0,0,0.25) 0%, transparent 50%),
-      linear-gradient(to bottom, transparent 40%, rgba(10,8,8,0.95) 100%);
-    z-index: 1;
-  }
-  .hero-card-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% 30%, rgba(139,0,0,0.2), transparent),
-      linear-gradient(160deg, #1A100A 0%, #0D0806 100%);
-  }
-  .dish-showcase {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9rem;
-    opacity: 0.15;
-    filter: blur(1px);
-  }
-  .hero-card-content {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    z-index: 2;
-    padding: 2rem;
-  }
-  .card-dish-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 0.3rem;
-  }
-  .card-tag {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .hero-card-corner {
-    position: absolute;
-    top: 1.5rem; right: 1.5rem;
-    z-index: 2;
-    text-align: right;
-  }
-  .rating-big {
-    font-family: 'Space Mono', monospace;
-    font-size: 2.5rem;
-    color: var(--gold);
-    line-height: 1;
-  }
-  .rating-stars {
-    color: var(--gold);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-  }
-  .floating-badge {
-    position: absolute;
-    top: 2rem; left: -1.5rem;
-    background: var(--red);
-    border: 1px solid rgba(139,0,0,0.5);
-    padding: 0.8rem 1.2rem;
-    z-index: 3;
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .badge-text {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--cream);
-  }
-  .badge-price {
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    color: var(--gold);
-  }
-
-  /* Scroll indicator */
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 10;
-    opacity: 0.5;
-  }
-  .scroll-line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(to bottom, var(--red-bright), transparent);
-    animation: scroll-drop 1.5s ease-in-out infinite;
-  }
-  @keyframes scroll-drop {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
-  .scroll-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    transform: rotate(90deg);
-    white-space: nowrap;
-    margin-top: 0.5rem;
-  }
-
-  /* ── SECTION COMMONS ── */
-  section {
-    position: relative;
-  }
-  .section-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4rem;
-  }
-  .section-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--red-bright);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 30px; height: 1px;
-    background: var(--red-bright);
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1.1;
-  }
-  .section-title em { font-style: italic; color: var(--red-bright); }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(139,0,0,0.4), transparent);
-  }
-
-  /* ── TRUST BAR ── */
-  #trust-bar {
-    background: var(--mid);
-    border-top: 1px solid rgba(139,0,0,0.2);
-    border-bottom: 1px solid rgba(139,0,0,0.2);
-    padding: 1.5rem 0;
-    overflow: hidden;
-  }
-  .trust-bar-inner {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
-  }
-  .tb-item {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.5rem 2.5rem;
-    border-right: 1px solid rgba(139,0,0,0.15);
-    transition: background 0.3s;
-  }
-  .tb-item:last-child { border-right: none; }
-  .tb-item:hover { background: rgba(139,0,0,0.05); }
-  .tb-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-  }
-  .tb-text strong {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cream);
-    display: block;
-  }
-  .tb-text span {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--text-dim);
-  }
-
-  /* ── MENU SECTION ── */
-  #menu {
-    padding: 8rem 0;
-    background: linear-gradient(to bottom, var(--dark) 0%, var(--mid) 50%, var(--dark) 100%);
-  }
-  .menu-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 4rem;
-  }
-  .menu-tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
-  }
-  .tab-btn {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.6rem 1.5rem;
-    background: transparent;
-    color: var(--text-dim);
-    border: 1px solid rgba(240,224,200,0.1);
-    cursor: none;
-    transition: all 0.3s;
-    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-  }
-  .tab-btn.active, .tab-btn:hover {
-    background: var(--red);
-    color: var(--cream);
-    border-color: var(--red);
-  }
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1px;
-    background: rgba(139,0,0,0.1);
-    border: 1px solid rgba(139,0,0,0.1);
-  }
-  .menu-item {
-    background: var(--dark);
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    transition: background 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .menu-item::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 2px;
-    background: var(--red);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.3s;
-  }
-  .menu-item:hover { background: rgba(139,0,0,0.06); }
-  .menu-item:hover::before { transform: scaleY(1); }
-  .item-info {}
-  .item-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .item-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 0.25rem;
-  }
-  .item-desc {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    line-height: 1.5;
-    max-width: 220px;
-  }
-  .item-veg {
-    width: 14px; height: 14px;
-    border: 2px solid #2ecc71;
-    border-radius: 2px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-  }
-  .item-veg::after {
-    content: '';
-    width: 6px; height: 6px;
-    background: #2ecc71;
-    border-radius: 50%;
-  }
-  .item-nonveg {
-    width: 14px; height: 14px;
-    border: 2px solid var(--red-bright);
-    border-radius: 2px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-  }
-  .item-nonveg::after {
-    content: '';
-    width: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 9px solid var(--red-bright);
-  }
-  .item-price {
-    font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    color: var(--gold);
-    white-space: nowrap;
-    margin-top: 0.3rem;
-    flex-shrink: 0;
-  }
-
-  /* ── ABOUT ── */
-  #about {
-    padding: 8rem 0;
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-  .about-visual {
-    position: relative;
-  }
-  .about-box {
-    position: relative;
-    aspect-ratio: 4/5;
-    border: 1px solid rgba(139,0,0,0.2);
-    overflow: hidden;
-  }
-  .about-box-inner {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 60% at 50% 40%, rgba(139,0,0,0.15), transparent),
-      linear-gradient(160deg, #1A0D08 0%, #0D0806 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
-  }
-  .about-stat-card {
-    position: absolute;
-    bottom: -1.5rem;
-    right: -1.5rem;
-    background: var(--red);
-    border: 1px solid rgba(240,224,200,0.1);
-    padding: 1.5rem 2rem;
-    z-index: 2;
-  }
-  .stat-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 2.5rem;
-    color: var(--cream);
-    line-height: 1;
-  }
-  .stat-text {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(240,224,200,0.7);
-    margin-top: 0.25rem;
-  }
-  .about-corner-box {
-    position: absolute;
-    top: -1.5rem; left: -1.5rem;
-    border: 1px solid rgba(139,0,0,0.3);
-    padding: 1rem 1.5rem;
-    background: var(--dark);
-    z-index: 2;
-  }
-  .corner-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-  .corner-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    color: var(--cream);
-    font-style: italic;
-  }
-  .about-text {}
-  .about-p {
-    font-size: 1.05rem;
-    line-height: 1.9;
-    color: var(--text-dim);
-    margin-bottom: 1.5rem;
-  }
-  .about-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  .feat {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 1rem;
-    border: 1px solid rgba(139,0,0,0.15);
-    transition: border-color 0.3s;
-  }
-  .feat:hover { border-color: rgba(139,0,0,0.5); }
-  .feat-icon { font-size: 1.3rem; flex-shrink: 0; }
-  .feat-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 0.2rem;
-  }
-  .feat-desc {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-    line-height: 1.5;
-  }
-
-  /* ── TESTIMONIALS ── */
-  #testimonials {
-    padding: 8rem 0;
-    background: var(--mid);
-    overflow: hidden;
-  }
-  .testimonials-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-  .testimonials-header .section-label { justify-content: center; }
-  .testimonials-header .section-label::before { display: none; }
-  .testimonials-header .section-label::after {
-    content: '';
-    display: block;
-    width: 30px; height: 1px;
-    background: var(--red-bright);
-  }
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .review-card {
-    background: var(--dark);
-    border: 1px solid rgba(139,0,0,0.12);
-    padding: 2.5rem;
-    position: relative;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .review-card:hover {
-    border-color: rgba(139,0,0,0.4);
-    transform: translateY(-4px);
-  }
-  .review-card::before {
-    content: '"';
-    position: absolute;
-    top: 1rem; right: 2rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 6rem;
-    color: rgba(139,0,0,0.1);
-    line-height: 1;
-    font-style: italic;
-  }
-  .review-stars {
-    color: var(--gold);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 1.2rem;
-  }
-  .review-text {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--text);
-    font-style: italic;
-    margin-bottom: 1.5rem;
-  }
-  .review-author {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .review-avatar {
-    width: 36px; height: 36px;
-    background: var(--red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--cream);
-  }
-  .review-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--cream);
-  }
-  .review-meta {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-  }
-
-  /* ── LOCATION ── */
-  #location {
-    padding: 8rem 0;
-  }
-  .location-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  .location-info {}
-  .location-details {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .loc-detail {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(139,0,0,0.1);
-  }
-  .loc-icon {
-    width: 40px; height: 40px;
-    background: rgba(139,0,0,0.15);
-    border: 1px solid rgba(139,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .loc-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 0.2rem;
-  }
-  .loc-val {
-    font-size: 1rem;
-    color: var(--cream);
-    line-height: 1.5;
-  }
-  .loc-val a {
-    color: var(--gold);
-    text-decoration: none;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.9rem;
-  }
-  .map-container {
-    position: relative;
-  }
-  .map-frame {
-    width: 100%;
-    height: 380px;
-    border: 1px solid rgba(139,0,0,0.2);
-    overflow: hidden;
-    position: relative;
-  }
-  .map-frame iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    filter: grayscale(0.3) contrast(1.1);
-  }
-  .map-overlay-bar {
-    background: var(--dark);
-    border: 1px solid rgba(139,0,0,0.2);
-    border-top: none;
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .map-address {
-    font-size: 0.85rem;
-    color: var(--text-dim);
-  }
-
-  /* ── RESERVATION ── */
-  #reservation {
-    padding: 8rem 0;
-    background: var(--mid);
-  }
-  .reservation-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 6rem;
-    align-items: start;
-  }
-  .reservation-info {}
-  .res-perks {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .res-perk {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-dim);
-  }
-  .res-perk::before {
-    content: '→';
-    color: var(--red-bright);
-    font-family: 'Space Mono', monospace;
-    flex-shrink: 0;
-  }
-  .reservation-form {
-    background: var(--dark);
-    border: 1px solid rgba(139,0,0,0.2);
-    padding: 3rem;
-  }
-  .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    color: var(--cream);
-    margin-bottom: 2rem;
-    font-style: italic;
-  }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-  }
-  .form-group.full { grid-column: 1 / -1; }
-  label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-  input, select, textarea {
-    background: rgba(240,224,200,0.04);
-    border: 1px solid rgba(139,0,0,0.2);
-    color: var(--cream);
-    padding: 0.8rem 1rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-  input:focus, select:focus, textarea:focus {
-    border-color: rgba(139,0,0,0.6);
-  }
-  select option { background: var(--dark); }
-  textarea { resize: vertical; min-height: 90px; }
-  .form-submit {
-    width: 100%;
-    padding: 1.1rem;
-    background: var(--red);
-    color: var(--cream);
-    border: none;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: none;
-    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-    transition: all 0.3s;
-    margin-top: 0.5rem;
-  }
-  .form-submit:hover {
-    background: var(--red-bright);
-    box-shadow: 0 0 40px var(--red-glow);
-  }
-
-  /* ── CTA SECTION ── */
-  #cta {
-    padding: 8rem 0;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-  .cta-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(139,0,0,0.2), transparent),
-      linear-gradient(to bottom, var(--dark), var(--mid), var(--dark));
-  }
-  .cta-grid-lines {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(139,0,0,0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(139,0,0,0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-  .cta-content {
-    position: relative;
-    z-index: 2;
-  }
-  .cta-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 6rem);
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-  .cta-title em {
-    font-style: italic;
-    color: var(--red-bright);
-  }
-  .cta-sub {
-    font-size: 1.1rem;
-    color: var(--text-dim);
-    max-width: 500px;
-    margin: 0 auto 3rem;
-    line-height: 1.7;
-  }
-  .cta-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn-large {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 1.2rem 2.5rem;
-    background: var(--red);
-    color: var(--cream);
-    text-decoration: none;
-    cursor: none;
-    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    border: none;
-  }
-  .btn-large:hover {
-    background: var(--red-bright);
-    box-shadow: 0 0 60px var(--red-glow), 0 0 120px rgba(139,0,0,0.1);
-  }
-  .btn-large-outline {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 1.2rem 2.5rem;
-    background: transparent;
-    color: var(--gold);
-    text-decoration: none;
-    cursor: none;
-    border: 1px solid var(--gold);
-    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  .btn-large-outline:hover {
-    background: rgba(201,168,76,0.1);
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #050303;
-    border-top: 1px solid rgba(139,0,0,0.15);
-    padding: 4rem 0 2rem;
-  }
-  .footer-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4rem;
-  }
-  .footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-  }
-  .footer-brand {}
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--cream);
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-  .footer-logo span { color: var(--red-bright); }
-  .footer-tagline {
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-  .footer-socials {
-    display: flex;
-    gap: 0.75rem;
-  }
-  .social-btn {
-    width: 36px; height: 36px;
-    border: 1px solid rgba(139,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: var(--text-dim);
-    transition: all 0.3s;
-  }
-  .social-btn:hover {
-    border-color: var(--red-bright);
-    color: var(--cream);
-    background: rgba(139,0,0,0.15);
-  }
-  .footer-col-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 1.2rem;
-  }
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-  .footer-links a {
-    font-size: 0.9rem;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  .footer-links a:hover { color: var(--cream); }
-  .footer-hours {}
-  .hour-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(240,224,200,0.05);
-    font-size: 0.85rem;
-  }
-  .hour-day { color: var(--text-dim); }
-  .hour-time { color: var(--cream); font-family: 'Space Mono', monospace; font-size: 0.75rem; }
-  .open-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.75rem;
-    padding: 0.35rem 0.75rem;
-    background: rgba(46,204,113,0.1);
-    border: 1px solid rgba(46,204,113,0.3);
-    font-family: 'Syne', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #2ecc71;
-  }
-  .open-dot {
-    width: 6px; height: 6px;
-    background: #2ecc71;
-    border-radius: 50%;
-    animation: blink 1.5s ease-in-out infinite;
-  }
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
-  }
-  .footer-bottom {
-    padding-top: 2rem;
-    border-top: 1px solid rgba(240,224,200,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .footer-copy {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--text-dim);
-    letter-spacing: 0.1em;
-  }
-  .footer-tagline-small {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--text-dim);
-  }
-
-  /* ── FLOATING BUTTONS ── */
-  .floating-call {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 800;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.75rem;
-  }
-  .float-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.9rem 1.5rem;
-    text-decoration: none;
-    cursor: none;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  }
-  .float-btn-call {
-    background: var(--red);
-    color: var(--cream);
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  }
-  .float-btn-call:hover {
-    background: var(--red-bright);
-    box-shadow: 0 4px 30px var(--red-glow);
-  }
-  .float-btn-wa {
-    background: #128C7E;
-    color: white;
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  }
-  .float-btn-wa:hover {
-    background: #25D366;
-  }
-  .float-icon { font-size: 1.1rem; }
-
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .fade-up:nth-child(2) { transition-delay: 0.1s; }
-  .fade-up:nth-child(3) { transition-delay: 0.2s; }
-  .fade-up:nth-child(4) { transition-delay: 0.3s; }
-
-  /* Hero animations */
-  @keyframes heroReveal {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-eyebrow { animation: heroReveal 0.8s ease 0.2s both; }
-  .hero-h1 { animation: heroReveal 0.8s ease 0.4s both; }
-  .hero-sub { animation: heroReveal 0.8s ease 0.6s both; }
-  .hero-actions { animation: heroReveal 0.8s ease 0.8s both; }
-  .hero-trust { animation: heroReveal 0.8s ease 1s both; }
-  .hero-visual { animation: heroReveal 0.9s ease 0.5s both; }
-
-  /* Mobile */
-  @media (max-width: 900px) {
-    nav { padding: 1.2rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero-content { grid-template-columns: 1fr; padding: 0 1.5rem; padding-top: 7rem; }
-    .hero-visual { display: none; }
-    .section-inner { padding: 0 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .about-visual { display: none; }
-    .reviews-grid { grid-template-columns: 1fr; }
-    .location-grid { grid-template-columns: 1fr; }
-    .reservation-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
-    .trust-bar-inner { flex-wrap: wrap; }
-    .tb-item { min-width: 50%; border-bottom: 1px solid rgba(139,0,0,0.1); }
-    .menu-grid { grid-template-columns: 1fr; }
-    .float-btn span { display: none; }
-    .float-btn { padding: 1rem; }
-  }
+:root{--red:#8B0000;--rdb:#C0392B;--rglow:rgba(139,0,0,.4);--oak:#6B4226;--oakb:#8B5A35;--oakglow:rgba(107,66,38,.45);--cream:#F5E6D3;--dark:#0A0808;--mid:#1A1210;--gold:#C9A84C;--text:#F0E0C8;--dim:#9A8070;--ora:#E85D04;--oraglow:rgba(232,93,4,.35)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'Cormorant Garamond',serif;overflow-x:hidden;cursor:none}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
+.cur{position:fixed;width:8px;height:8px;background:var(--rdb);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+.curR{position:fixed;width:34px;height:34px;border:1px solid rgba(139,0,0,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:linear-gradient(to bottom,rgba(10,8,8,.96),transparent);backdrop-filter:blur(16px);border-bottom:1px solid rgba(139,0,0,.15);transition:all .4s}
+nav.sc{background:rgba(10,8,8,.98);border-bottom-color:rgba(139,0,0,.35)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;color:var(--cream);text-decoration:none}
+.logo span{color:var(--rdb)}
+.nl{display:flex;gap:1.8rem;list-style:none}
+.nl a{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--rdb);transition:width .3s}
+.nl a:hover{color:var(--cream)}.nl a:hover::after{width:100%}
+.nr{display:flex;align-items:center;gap:1rem}
+.nph{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--gold);text-decoration:none;transition:color .3s}
+.nph:hover{color:var(--cream)}
+.bnav{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.55rem 1.4rem;background:var(--red);color:var(--cream);border:none;text-decoration:none;cursor:none;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:all .3s}
+.bnav:hover{background:var(--rdb);box-shadow:0 0 24px var(--rglow)}
+.lpill{display:inline-flex;align-items:center;gap:.5rem;padding:.38rem 1rem;border-radius:40px;font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid}
+.lpill.op{color:#2ecc71;border-color:rgba(46,204,113,.4);background:rgba(46,204,113,.08)}
+.lpill.cl{color:#e74c3c;border-color:rgba(231,76,60,.4);background:rgba(231,76,60,.08)}
+.ldot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.lpill.op .ldot{background:#2ecc71;animation:bl 1.4s ease-in-out infinite}
+.lpill.cl .ldot{background:#e74c3c}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+.bp,.bs,.bok,.bwa,.bfest,.blg,.blo{font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:none;display:inline-flex;align-items:center;gap:.6rem;border:none;transition:all .3s}
+.bp{font-size:.72rem;padding:1rem 2rem;background:var(--red);color:var(--cream);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.bp:hover{background:var(--rdb);box-shadow:0 0 40px var(--rglow)}
+.bs{font-size:.72rem;padding:1rem 2rem;background:transparent;color:var(--cream);border:1px solid rgba(240,224,200,.22);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.bs:hover{border-color:var(--gold);color:var(--gold)}
+.bok{font-size:.72rem;padding:1rem 2rem;background:var(--oak);color:var(--cream);clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.bok:hover{background:var(--oakb);box-shadow:0 0 30px var(--oakglow)}
+.bwa{font-size:.72rem;padding:1rem 2rem;background:#128C7E;color:#fff;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.bwa:hover{background:#25D366}
+.bfest{font-size:.72rem;padding:1rem 2rem;background:var(--ora);color:#fff;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%)}
+.bfest:hover{background:#FF6B1A;box-shadow:0 0 40px var(--oraglow)}
+.blg{font-size:.78rem;padding:1.2rem 2.5rem;background:var(--red);color:var(--cream);clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%)}
+.blg:hover{background:var(--rdb);box-shadow:0 0 60px var(--rglow)}
+.blo{font-size:.78rem;padding:1.2rem 2.5rem;background:transparent;color:var(--gold);border:1px solid var(--gold);clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%)}
+.blo:hover{background:rgba(201,168,76,.1)}
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hcbg{position:absolute;inset:0;z-index:0}
+#amb{position:absolute;inset:0;width:100%;height:100%}
+.hov{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,8,8,.93) 48%,rgba(10,8,8,.35) 100%),linear-gradient(to top,rgba(10,8,8,.75) 0%,transparent 55%)}
+.hgl{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(139,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(139,0,0,.05) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 80%)}
+.hin{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 4rem;padding-top:8rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hey{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--rdb);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;animation:ru .8s ease .2s both}
+.hey::before{content:'';display:block;width:40px;height:1px;background:var(--rdb)}
+.hh1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,6vw,6rem);font-weight:300;line-height:1.05;color:var(--cream);margin-bottom:1.2rem;animation:ru .8s ease .4s both}
+.hh1 em{font-style:italic;color:var(--rdb)}.hh1 strong{font-weight:600;display:block}
+.hsub{font-size:1.1rem;font-weight:300;color:var(--dim);line-height:1.75;max-width:420px;margin-bottom:1.4rem;animation:ru .8s ease .6s both}
+.hst{margin-bottom:2rem;animation:ru .8s ease .65s both}
+.hac{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;animation:ru .8s ease .8s both}
+.htr{display:flex;gap:2rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(240,224,200,.08);animation:ru .8s ease 1s both}
+.tv{font-family:'Space Mono',monospace;font-size:1.1rem;color:var(--gold)}
+.tl{font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+@keyframes ru{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hvis{animation:ru .9s ease .5s both}
+.hcard{position:relative;width:100%;max-width:460px;aspect-ratio:3/4;border:1px solid rgba(139,0,0,.3);overflow:hidden;margin-left:auto}
+.hcard::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(139,0,0,.22) 0%,transparent 50%),linear-gradient(to bottom,transparent 40%,rgba(10,8,8,.97) 100%)}
+.hcbg2{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(139,0,0,.2),transparent),linear-gradient(160deg,#1A100A 0%,#0D0806 100%)}
+.dish{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9rem;opacity:.12;filter:blur(1px)}
+.hci{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:2rem}
+.cdn{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--cream);margin-bottom:.3rem}
+.cdt{font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hcc{position:absolute;top:1.5rem;right:1.5rem;z-index:2;text-align:right}
+.rb{font-family:'Space Mono',monospace;font-size:2.5rem;color:var(--gold);line-height:1}
+.rs{color:var(--gold);font-size:.9rem}
+.flbdg{position:absolute;top:2rem;left:-1.5rem;background:var(--red);border:1px solid rgba(139,0,0,.5);padding:.8rem 1.2rem;z-index:3;animation:flt 3s ease-in-out infinite}
+.flbdg .fbt{font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cream)}
+.flbdg .fbp{font-family:'Space Mono',monospace;font-size:1rem;color:var(--gold)}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.schi{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:10;opacity:.4}
+.scl{width:1px;height:50px;background:linear-gradient(to bottom,var(--rdb),transparent);animation:sd 1.6s ease-in-out infinite}
+@keyframes sd{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.sclt{font-family:'Syne',sans-serif;font-size:.52rem;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);transform:rotate(90deg);white-space:nowrap;margin-top:.5rem}
+#tbar{background:var(--mid);border-top:1px solid rgba(139,0,0,.2);border-bottom:1px solid rgba(139,0,0,.2);padding:1.4rem 0}
+.tbi{display:flex;max-width:1400px;margin:0 auto;padding:0 4rem}
+.tbit{flex:1;display:flex;align-items:center;gap:.9rem;padding:.4rem 1.5rem;border-right:1px solid rgba(139,0,0,.12);transition:background .3s}
+.tbit:last-child{border-right:none}.tbit:hover{background:rgba(139,0,0,.06)}
+.tbic{font-size:1.4rem;flex-shrink:0}
+.tbt strong{font-family:'Syne',sans-serif;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);display:block}
+.tbt span{font-family:'Space Mono',monospace;font-size:.57rem;color:var(--dim)}
+.si{max-width:1400px;margin:0 auto;padding:0 4rem}
+.sl{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--rdb);display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.sl::before{content:'';display:block;width:30px;height:1px;background:var(--rdb)}
+.st{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:300;color:var(--cream);line-height:1.1}
+.st em{font-style:italic;color:var(--rdb)}
+.ap{font-size:1.05rem;line-height:1.9;color:var(--dim);margin-bottom:1.5rem}
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+#menu{padding:8rem 0;background:linear-gradient(to bottom,var(--dark) 0%,var(--mid) 50%,var(--dark) 100%)}
+.mhdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem}
+.mtabs{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:3rem;align-items:center}
+.tab{font-family:'Syne',sans-serif;font-size:.67rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.56rem 1.25rem;background:transparent;color:var(--dim);border:1px solid rgba(240,224,200,.1);cursor:none;transition:all .3s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+.tab.on,.tab:hover{background:var(--red);color:var(--cream);border-color:var(--red)}
+.tchef{font-family:'Syne',sans-serif;font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.56rem 1.25rem;background:rgba(201,168,76,.07);color:var(--gold);border:1px solid rgba(201,168,76,.3);cursor:none;transition:all .3s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);display:flex;align-items:center;gap:.4rem}
+.tchef.on,.tchef:hover{background:rgba(201,168,76,.18);border-color:var(--gold)}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:rgba(139,0,0,.08);border:1px solid rgba(139,0,0,.1)}
+.mi{background:var(--dark);padding:1.8rem 2rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;transition:background .3s;position:relative;overflow:hidden}
+.mi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.mi:hover{background:rgba(139,0,0,.07)}.mi:hover::before{transform:scaleY(1)}
+.vd{width:14px;height:14px;border:2px solid #2ecc71;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:.5rem}
+.vd::after{content:'';width:6px;height:6px;background:#2ecc71;border-radius:50%}
+.nd{width:14px;height:14px;border:2px solid var(--rdb);border-radius:2px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:.5rem}
+.nd::after{content:'';width:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:9px solid var(--rdb)}
+.inn{font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-weight:600;color:var(--cream);margin-bottom:.2rem}
+.ind{font-size:.84rem;color:var(--dim);line-height:1.5;max-width:220px}
+.ibd{display:flex;gap:.4rem;margin-top:.7rem;flex-wrap:wrap}
+.bm{font-family:'Syne',sans-serif;font-size:.53rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;background:rgba(139,0,0,.25);border:1px solid rgba(139,0,0,.5);color:var(--rdb);opacity:0;transform:translateY(5px);transition:opacity .22s,transform .22s}
+.bo{font-family:'Syne',sans-serif;font-size:.53rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.2rem .5rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.4);color:var(--gold);opacity:0;transform:translateY(5px);transition:opacity .22s .06s,transform .22s .06s}
+.mi:hover .bm,.mi:hover .bo{opacity:1;transform:translateY(0)}
+.ir{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;flex-shrink:0}
+.ip{font-family:'Space Mono',monospace;font-size:1rem;color:var(--gold)}
+.cb{font-family:'Syne',sans-serif;font-size:.5rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;background:var(--gold);color:var(--dark)}
+#duss{position:relative;padding:8rem 0;overflow:hidden;background:linear-gradient(135deg,#0F0600 0%,var(--mid) 40%,#0F0600 100%)}
+.dsparks{position:absolute;inset:0;z-index:0;overflow:hidden}
+.spark{position:absolute;border-radius:50%;animation:spk var(--d,3s) ease-in-out infinite var(--dl,0s)}
+@keyframes spk{0%,100%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-40px) scale(1.2);opacity:.2}}
+.din{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.dtag{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.5rem;padding:.5rem 1.2rem;background:rgba(232,93,4,.1);border:1px solid rgba(232,93,4,.4);font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ora)}
+.dh{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4vw,4.5rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1.5rem}
+.dh em{font-style:italic;color:var(--ora)}
+.dp{font-size:1.05rem;color:var(--dim);line-height:1.85;margin-bottom:2rem}
+.dfl{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2.5rem}
+.dft{display:flex;align-items:center;gap:.9rem;font-size:.95rem;color:var(--dim)}
+.dfic{width:36px;height:36px;flex-shrink:0;background:rgba(232,93,4,.1);border:1px solid rgba(232,93,4,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.dac{display:flex;gap:1rem;flex-wrap:wrap}
+.dcrd{position:relative;border:1px solid rgba(232,93,4,.3);overflow:hidden;aspect-ratio:4/5}
+.dcbg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(232,93,4,.14),transparent),linear-gradient(160deg,#180900 0%,#0D0502 100%)}
+.dcbd{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;padding:2.5rem;text-align:center}
+.dem{font-size:5rem;margin-bottom:1rem;animation:dg 2s ease-in-out infinite alternate}
+@keyframes dg{from{filter:drop-shadow(0 0 14px rgba(232,93,4,.5))}to{filter:drop-shadow(0 0 45px rgba(232,93,4,.95))}}
+.dct{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--cream);margin-bottom:.4rem}
+.dcs{font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ora);margin-bottom:1.8rem}
+.dcnt{display:flex;gap:1.5rem;justify-content:center}
+.cit{text-align:center}
+.cn{font-family:'Space Mono',monospace;font-size:2rem;color:var(--gold);line-height:1}
+.cl{font-family:'Syne',sans-serif;font-size:.54rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim)}
+.dsold{position:absolute;top:.8rem;right:0;background:var(--ora);padding:.45rem 1.2rem;z-index:3;font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;clip-path:polygon(10px 0%,100% 0%,100% 100%,0% 100%)}
+#about{padding:8rem 0}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.avis{position:relative}
+.abox{position:relative;aspect-ratio:4/5;border:1px solid rgba(139,0,0,.2);overflow:hidden}
+.abxin{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(139,0,0,.15),transparent),linear-gradient(160deg,#1A0D08 0%,#0D0806 100%);display:flex;align-items:center;justify-content:center;font-size:8rem}
+.astat{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--red);padding:1.5rem 2rem;z-index:2}
+.asn{font-family:'Space Mono',monospace;font-size:2.5rem;color:var(--cream);line-height:1}
+.ast{font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(240,224,200,.7);margin-top:.2rem}
+.acor{position:absolute;top:-1.5rem;left:-1.5rem;border:1px solid rgba(139,0,0,.3);padding:1rem 1.5rem;background:var(--dark);z-index:2}
+.acl{font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.acv{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--cream);font-style:italic}
+.aft{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.af{display:flex;align-items:flex-start;gap:.75rem;padding:1rem;border:1px solid rgba(139,0,0,.15);transition:border-color .3s}
+.af:hover{border-color:rgba(107,66,38,.55)}
+.afic{font-size:1.3rem;flex-shrink:0}
+.aft2{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);margin-bottom:.2rem}
+.afd{font-size:.83rem;color:var(--dim);line-height:1.5}
+#quality{padding:7rem 0;background:var(--mid);position:relative;overflow:hidden}
+#quality::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 80% 50%,rgba(107,66,38,.08),transparent)}
+.qg{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2}
+.qcs{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.qc{padding:1.8rem;border:1px solid rgba(139,0,0,.15);background:var(--dark);position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.qc:hover{border-color:rgba(107,66,38,.5);transform:translateY(-3px)}
+.qci{font-size:2rem;margin-bottom:1rem;display:block}
+.qct{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);margin-bottom:.5rem}
+.qcd{font-size:.88rem;color:var(--dim);line-height:1.6}
+.qcn{position:absolute;top:1rem;right:1.2rem;font-family:'Space Mono',monospace;font-size:2.5rem;color:rgba(107,66,38,.14);line-height:1}
+.chfc{border:1px solid rgba(107,66,38,.3);background:var(--dark);padding:2.5rem;text-align:center}
+.chav{width:100px;height:100px;background:radial-gradient(circle,rgba(139,0,0,.3),rgba(107,66,38,.2));border:2px solid rgba(139,0,0,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;margin:0 auto 1.5rem}
+.chn{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-style:italic;color:var(--cream);margin-bottom:.3rem}
+.chr{font-family:'Syne',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.chq{font-size:1.05rem;color:var(--dim);line-height:1.8;font-style:italic;position:relative;padding:0 1rem}
+.chq::before{content:'"';position:absolute;top:-.5rem;left:-.5rem;font-size:3rem;color:rgba(139,0,0,.2);font-family:'Cormorant Garamond',serif;line-height:1}
+.chbs{display:flex;gap:.8rem;margin-top:1.5rem;justify-content:center;flex-wrap:wrap}
+.chb{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .75rem;border:1px solid rgba(107,66,38,.4);color:var(--oakb);background:rgba(107,66,38,.07)}
+#testimonials{padding:8rem 0}
+.thdr{text-align:center;margin-bottom:4rem}
+.thdr .sl{justify-content:center}.thdr .sl::before{display:none}
+.thdr .sl::after{content:'';display:block;width:30px;height:1px;background:var(--rdb)}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.rc{background:var(--mid);border:1px solid rgba(139,0,0,.12);padding:2.5rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.rc:hover{border-color:rgba(139,0,0,.4);transform:translateY(-5px)}
+.rc::before{content:'"';position:absolute;top:1rem;right:2rem;font-family:'Cormorant Garamond',serif;font-size:7rem;color:rgba(139,0,0,.08);line-height:1;font-style:italic;pointer-events:none}
+.rstar{color:var(--gold);font-size:1.05rem;letter-spacing:.1em;margin-bottom:1.2rem}
+.rtxt{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:1.8rem}
+.rauth{display:flex;align-items:center;gap:1rem}
+.rav{width:52px;height:52px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--cream);flex-shrink:0;border:2px solid rgba(139,0,0,.4)}
+.rn{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--cream)}
+.rm{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--dim);margin-top:.1rem}
+.rp{font-family:'Syne',sans-serif;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:.2rem}
+#location{padding:8rem 0;background:var(--mid)}
+.locg{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start}
+.locd{margin-top:2rem;display:flex;flex-direction:column;gap:1.5rem}
+.ld{display:flex;gap:1.2rem;align-items:flex-start;padding-bottom:1.5rem;border-bottom:1px solid rgba(139,0,0,.1)}
+.ldic{width:40px;height:40px;background:rgba(139,0,0,.12);border:1px solid rgba(139,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.ldl{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:.2rem}
+.ldv{font-size:1rem;color:var(--cream);line-height:1.5}
+.ldv a{color:var(--gold);text-decoration:none;font-family:'Space Mono',monospace;font-size:.9rem}
+.mapfr{width:100%;height:380px;border:1px solid rgba(139,0,0,.2);overflow:hidden}
+.mapfr iframe{width:100%;height:100%;border:none;filter:grayscale(.3) contrast(1.1)}
+.mapbar{background:var(--dark);border:1px solid rgba(139,0,0,.2);border-top:none;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.maddr{font-size:.85rem;color:var(--dim)}
+#reservation{padding:8rem 0}
+.resg{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start}
+.resperks{margin-top:2.5rem;display:flex;flex-direction:column;gap:1rem}
+.rp2{display:flex;align-items:center;gap:1rem;font-size:.9rem;color:var(--dim)}
+.rp2::before{content:'rarr';color:var(--rdb);font-family:'Space Mono',monospace;flex-shrink:0}
+.rfm{background:var(--mid);border:1px solid rgba(139,0,0,.2);padding:3rem}
+.fmtitle{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--cream);margin-bottom:2rem;font-style:italic}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+label{font-family:'Syne',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+input,select,textarea{background:rgba(240,224,200,.04);border:1px solid rgba(139,0,0,.2);color:var(--cream);padding:.8rem 1rem;font-family:'Cormorant Garamond',serif;font-size:1rem;outline:none;transition:border-color .3s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:rgba(139,0,0,.6)}
+select option{background:var(--dark)}
+textarea{resize:vertical;min-height:90px}
+.fsub{width:100%;padding:1.1rem;background:var(--red);color:var(--cream);border:none;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;cursor:none;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .3s;margin-top:.5rem}
+.fsub:hover{background:var(--rdb);box-shadow:0 0 40px var(--rglow)}
+.wao{display:flex;align-items:center;gap:1rem;margin-top:1rem;padding:1rem 1.2rem;background:rgba(18,140,126,.1);border:1px solid rgba(18,140,126,.3);cursor:none;transition:all .3s;text-decoration:none}
+.wao:hover{background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.4)}
+.wot{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#25D366}
+.wos{font-size:.82rem;color:var(--dim);margin-top:.1rem}
+#cta{padding:8rem 0;position:relative;overflow:hidden;text-align:center}
+.ctabg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(139,0,0,.2),transparent),linear-gradient(to bottom,var(--dark),var(--mid),var(--dark))}
+.ctagl{position:absolute;inset:0;background-image:linear-gradient(rgba(139,0,0,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(139,0,0,.08) 1px,transparent 1px);background-size:40px 40px}
+.ctain{position:relative;z-index:2}
+.ctah{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,6rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1.5rem}
+.ctah em{font-style:italic;color:var(--rdb)}
+.ctas{font-size:1.1rem;color:var(--dim);max-width:500px;margin:0 auto 3rem;line-height:1.7}
+.ctabt{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap}
+footer{background:#050303;border-top:1px solid rgba(139,0,0,.15);padding:4rem 0 2rem}
+.fttop{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.flogo{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--cream);margin-bottom:.75rem;display:block}
+.flogo span{color:var(--rdb)}
+.ftg{font-size:.9rem;color:var(--dim);line-height:1.7;margin-bottom:1.5rem}
+.fsoc{display:flex;gap:.75rem}
+.sb{width:36px;height:36px;border:1px solid rgba(139,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:.9rem;text-decoration:none;color:var(--dim);transition:all .3s}
+.sb:hover{border-color:var(--rdb);color:var(--cream);background:rgba(139,0,0,.15)}
+.fct{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-bottom:1.2rem}
+.flks{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.flks a{font-size:.9rem;color:var(--dim);text-decoration:none;transition:color .3s}
+.flks a:hover{color:var(--cream)}
+.hrr{display:flex;justify-content:space-between;align-items:center;padding:.4rem 0;border-bottom:1px solid rgba(240,224,200,.05);font-size:.85rem}
+.hrd{color:var(--dim)}.hrt{color:var(--cream);font-family:'Space Mono',monospace;font-size:.72rem}
+.ob{display:inline-flex;align-items:center;gap:.4rem;margin-top:.75rem;padding:.35rem .75rem;background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.3);font-family:'Syne',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:#2ecc71}
+.od{width:6px;height:6px;background:#2ecc71;border-radius:50%;animation:bl 1.5s ease-in-out infinite}
+.ftbot{padding-top:2rem;border-top:1px solid rgba(240,224,200,.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ftcp{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.1em}
+.ftseo{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-style:italic;color:var(--dim)}
+.fstk{position:fixed;bottom:2rem;right:2rem;z-index:800;display:flex;flex-direction:column;align-items:flex-end;gap:.75rem}
+.fb{display:flex;align-items:center;gap:.7rem;padding:.85rem 1.5rem;text-decoration:none;cursor:none;font-family:'Syne',sans-serif;font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.fb-call{background:var(--red);color:var(--cream);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.fb-call:hover{background:var(--rdb);box-shadow:0 4px 30px var(--rglow)}
+.fb-wa{background:#128C7E;color:#fff;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.fb-wa:hover{background:#25D366}
+.fb-ord{background:var(--oak);color:var(--cream);clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.fb-ord:hover{background:var(--oakb);box-shadow:0 4px 30px var(--oakglow)}
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}.nl{display:none}
+  .hin{grid-template-columns:1fr;padding:0 1.5rem;padding-top:7rem}.hvis{display:none}
+  .si,.tbi{padding:0 1.5rem}.tbi{flex-wrap:wrap}
+  .tbit{min-width:50%;border-bottom:1px solid rgba(139,0,0,.1)}
+  .ag,.din,.qg,.locg,.resg{grid-template-columns:1fr}.avis{display:none}
+  .rg,.qcs,.aft{grid-template-columns:1fr}.fttop{grid-template-columns:1fr 1fr}
+  .mgrid{grid-template-columns:1fr}.frow{grid-template-columns:1fr}
+  .fb span{display:none}.fb{padding:1rem}
+}
 </style>
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
+<div class="cur" id="cur"></div>
+<div class="curR" id="curR"></div>
 <nav id="nav">
-  <a href="#hero" class="nav-logo"><span>Red</span>Oak</a>
-  <ul class="nav-links">
+  <a href="#hero" class="logo"><span>Red</span>Oak</a>
+  <ul class="nl">
     <li><a href="#menu">Menu</a></li>
+    <li><a href="#duss">Festival</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#quality">Quality</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#location">Location</a></li>
     <li><a href="#reservation">Reserve</a></li>
   </ul>
-  <div class="nav-cta">
-    <a href="tel:08770803523" class="nav-phone">📞 087708 03523</a>
-    <a href="#reservation" class="btn-nav">Book Table</a>
+  <div class="nr">
+    <a href="tel:08770803523" class="nph">📞 087708 03523</a>
+    <a href="#reservation" class="bnav">Book Table</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-accent-line"></div>
-
-  <div class="hero-content">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Est. in Balaghat · Madhya Pradesh</p>
-      <h1 class="hero-h1">
-        <em>Aesthetic</em><br>
-        <strong>Dining</strong><br>
-        Experience
-      </h1>
-      <p class="hero-sub">
-        Where warm hospitality meets exceptional flavour. An experience crafted for the senses, priced for every occasion.
-      </p>
-      <div class="hero-actions">
-        <a href="tel:08770803523" class="btn-primary">📞 <span>Call Now</span></a>
-        <a href="#reservation" class="btn-primary">🍽 <span>Reserve Table</span></a>
-        <a href="#menu" class="btn-secondary">View Menu →</a>
+  <div class="hcbg"><canvas id="amb"></canvas></div>
+  <div class="hov"></div><div class="hgl"></div>
+  <div class="hin">
+    <div>
+      <p class="hey">Est. in Balaghat · Madhya Pradesh</p>
+      <h1 class="hh1"><em>Aesthetic</em><br><strong>Dining</strong><br>Experience</h1>
+      <p class="hsub">Where warm hospitality meets exceptional flavour — crafted for the senses, priced for every occasion.</p>
+      <div class="hst"><span class="lpill" id="lp"><span class="ldot"></span><span id="lt">Checking…</span></span></div>
+      <div class="hac">
+        <a href="tel:08770803523" class="bp">📞 Call Now</a>
+        <a href="#reservation" class="bp">🍽 Reserve Table</a>
+        <a href="#menu" class="bs">View Menu →</a>
       </div>
-      <div class="hero-trust">
-        <div class="trust-item">
-          <span class="trust-val">4.3★</span>
-          <span class="trust-label">Star Rating</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-val">113+</span>
-          <span class="trust-label">Reviews</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-val">₹200–400</span>
-          <span class="trust-label">Per Person</span>
-        </div>
-        <div class="trust-item">
-          <span class="trust-val">11 PM</span>
-          <span class="trust-label">Open Till</span>
-        </div>
+      <div class="htr">
+        <div><div class="tv">4.3★</div><div class="tl">Star Rating</div></div>
+        <div><div class="tv">113+</div><div class="tl">Reviews</div></div>
+        <div><div class="tv">₹200–400</div><div class="tl">Per Person</div></div>
+        <div><div class="tv">11 PM</div><div class="tl">Open Till</div></div>
       </div>
     </div>
-
-    <div class="hero-visual">
-      <div class="floating-badge">
-        <p class="badge-text">Affordable Fine Dining</p>
-        <p class="badge-price">₹200 – ₹400</p>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-bg"></div>
-        <div class="dish-showcase">🍛</div>
-        <div class="hero-card-corner">
-          <p class="rating-big">4.3</p>
-          <p class="rating-stars">★★★★☆</p>
-        </div>
-        <div class="hero-card-content">
-          <p class="card-dish-name">Kaju Butter Masala</p>
-          <p class="card-tag">Chef's Signature · Vegetarian</p>
-        </div>
+    <div class="hvis">
+      <div class="flbdg"><p class="fbt">Affordable Fine Dining</p><p class="fbp">₹200 – ₹400</p></div>
+      <div class="hcard">
+        <div class="hcbg2"></div><div class="dish">🍛</div>
+        <div class="hcc"><div class="rb">4.3</div><div class="rs">★★★★☆</div></div>
+        <div class="hci"><p class="cdn">Kaju Butter Masala</p><p class="cdt">Chef's Signature · 100+ Orders This Week</p></div>
       </div>
     </div>
   </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span class="scroll-label">Scroll</span>
-  </div>
+  <div class="schi"><div class="scl"></div><span class="sclt">Scroll</span></div>
 </section>
 
 <!-- TRUST BAR -->
-<div id="trust-bar">
-  <div class="section-inner">
-    <div class="trust-bar-inner">
-      <div class="tb-item">
-        <span class="tb-icon">⭐</span>
-        <div class="tb-text">
-          <strong>4.3 Star Rated</strong>
-          <span>113+ Google Reviews</span>
-        </div>
-      </div>
-      <div class="tb-item">
-        <span class="tb-icon">🍽</span>
-        <div class="tb-text">
-          <strong>Dine-In Available</strong>
-          <span>Aesthetic Ambience</span>
-        </div>
-      </div>
-      <div class="tb-item">
-        <span class="tb-icon">🛵</span>
-        <div class="tb-text">
-          <strong>No-Contact Delivery</strong>
-          <span>Kerbside Pickup Too</span>
-        </div>
-      </div>
-      <div class="tb-item">
-        <span class="tb-icon">🕙</span>
-        <div class="tb-text">
-          <strong>Open Till 11 PM</strong>
-          <span>7 Days a Week</span>
-        </div>
-      </div>
-      <div class="tb-item">
-        <span class="tb-icon">🏳️‍🌈</span>
-        <div class="tb-text">
-          <strong>All Are Welcome</strong>
-          <span>LGBTQ+ Friendly</span>
-        </div>
-      </div>
-    </div>
+<div id="tbar">
+  <div class="tbi">
+    <div class="tbit"><span class="tbic">⭐</span><div class="tbt"><strong>4.3 Star Rated</strong><span>113+ Google Reviews</span></div></div>
+    <div class="tbit"><span class="tbic">🍽</span><div class="tbt"><strong>Dine-In Available</strong><span>Aesthetic Ambience</span></div></div>
+    <div class="tbit"><span class="tbic">🛵</span><div class="tbt"><strong>No-Contact Delivery</strong><span>Kerbside Pickup Too</span></div></div>
+    <div class="tbit"><span class="tbic">🕙</span><div class="tbt"><strong>Open Till 11 PM</strong><span>7 Days a Week</span></div></div>
+    <div class="tbit"><span class="tbic">🏳️‍🌈</span><div class="tbt"><strong>All Are Welcome</strong><span>LGBTQ+ Friendly</span></div></div>
   </div>
 </div>
 
 <!-- MENU -->
 <section id="menu">
-  <div class="section-inner">
-    <div class="menu-header">
-      <div>
-        <p class="section-label">Our Menu</p>
-        <h2 class="section-title">Flavours <em>Crafted</em><br>with Passion</h2>
-      </div>
-      <a href="tel:08770803523" class="btn-secondary">Order by Phone →</a>
+  <div class="si">
+    <div class="mhdr">
+      <div><p class="sl">Our Menu</p><h2 class="st">Flavours <em>Crafted</em><br>with Passion</h2></div>
+      <a href="https://wa.me/918770803523?text=Hello%20RedOak!%20I%20want%20to%20order%20food." target="_blank" class="bwa">💬 Quick Order on WhatsApp</a>
     </div>
-
-    <div class="menu-tabs" id="menuTabs">
-      <button class="tab-btn active" data-cat="all">All</button>
-      <button class="tab-btn" data-cat="starters">Starters</button>
-      <button class="tab-btn" data-cat="main">Main Course</button>
-      <button class="tab-btn" data-cat="pizza">Pizza</button>
-      <button class="tab-btn" data-cat="chinese">Chinese</button>
-      <button class="tab-btn" data-cat="beverages">Beverages</button>
+    <div class="mtabs">
+      <button class="tab on" data-cat="all">All</button>
+      <button class="tab" data-cat="starters">Starters</button>
+      <button class="tab" data-cat="main">Main Course</button>
+      <button class="tab" data-cat="pizza">Pizza</button>
+      <button class="tab" data-cat="chinese">Chinese</button>
+      <button class="tab" data-cat="beverages">Beverages</button>
+      <button class="tchef" id="chefBtn">★ Chef's Picks</button>
     </div>
+    <div class="mgrid" id="mgrid">
+      <div class="mi" data-cat="starters" data-chef="false"><div><div class="vd"></div><p class="inn">Veg Spring Roll</p><p class="ind">Crispy golden rolls filled with spiced vegetables</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹120</p></div></div>
+      <div class="mi" data-cat="starters" data-chef="true"><div><div class="vd"></div><p class="inn">Paneer Tikka</p><p class="ind">Char-grilled cottage cheese with smoky spices</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">50+ Orders this week</span></div></div><div class="ir"><p class="ip">₹180</p><span class="cb">★ Chef's Pick</span></div></div>
+      <div class="mi" data-cat="starters" data-chef="false"><div><div class="nd"></div><p class="inn">Chicken Lollipop</p><p class="ind">Tender chicken drizzled with fiery chilli sauce</p><div class="ibd"><span class="bo">80+ Orders this week</span></div></div><div class="ir"><p class="ip">₹200</p></div></div>
+      <div class="mi" data-cat="starters" data-chef="false"><div><div class="vd"></div><p class="inn">Hara Bhara Kebab</p><p class="ind">Spinach and pea kebabs with mint chutney</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹140</p></div></div>
+      <div class="mi" data-cat="main" data-chef="true"><div><div class="vd"></div><p class="inn">Kaju Butter Masala</p><p class="ind">Cashews in a rich, buttery tomato-cream sauce</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">100+ Orders this week</span></div></div><div class="ir"><p class="ip">₹220</p><span class="cb">★ Chef's Pick</span></div></div>
+      <div class="mi" data-cat="main" data-chef="false"><div><div class="vd"></div><p class="inn">Mixed Veg Curry</p><p class="ind">Seasonal vegetables in aromatic spiced gravy</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹160</p></div></div>
+      <div class="mi" data-cat="main" data-chef="true"><div><div class="nd"></div><p class="inn">Butter Chicken</p><p class="ind">Slow-cooked chicken in velvety makhani sauce</p><div class="ibd"><span class="bo">90+ Orders this week</span></div></div><div class="ir"><p class="ip">₹250</p><span class="cb">★ Chef's Pick</span></div></div>
+      <div class="mi" data-cat="main" data-chef="false"><div><div class="vd"></div><p class="inn">Dal Makhani</p><p class="ind">Black lentils simmered overnight, topped with cream</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹150</p></div></div>
+      <div class="mi" data-cat="pizza" data-chef="true"><div><div class="vd"></div><p class="inn">Margarita Pizza</p><p class="ind">Classic pizza with fresh basil and mozzarella</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">60+ Orders this week</span></div></div><div class="ir"><p class="ip">₹200</p><span class="cb">★ Chef's Pick</span></div></div>
+      <div class="mi" data-cat="pizza" data-chef="false"><div><div class="vd"></div><p class="inn">Paneer Tikka Pizza</p><p class="ind">Spiced paneer on a crispy stone-baked base</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹240</p></div></div>
+      <div class="mi" data-cat="pizza" data-chef="false"><div><div class="nd"></div><p class="inn">Chicken BBQ Pizza</p><p class="ind">Smoky BBQ chicken with caramelised onions</p><div class="ibd"><span class="bo">45+ Orders this week</span></div></div><div class="ir"><p class="ip">₹270</p></div></div>
+      <div class="mi" data-cat="chinese" data-chef="false"><div><div class="vd"></div><p class="inn">Veg Manchurian</p><p class="ind">Fried vegetable balls in tangy manchurian sauce</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹150</p></div></div>
+      <div class="mi" data-cat="chinese" data-chef="false"><div><div class="nd"></div><p class="inn">Chicken Fried Rice</p><p class="ind">Wok-tossed rice with egg, chicken and aromatics</p><div class="ibd"><span class="bo">70+ Orders this week</span></div></div><div class="ir"><p class="ip">₹180</p></div></div>
+      <div class="mi" data-cat="chinese" data-chef="false"><div><div class="vd"></div><p class="inn">Hakka Noodles</p><p class="ind">Stir-fried noodles with crispy vegetables</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹140</p></div></div>
+      <div class="mi" data-cat="beverages" data-chef="true"><div><div class="vd"></div><p class="inn">Mango Lassi</p><p class="ind">Thick blended yogurt with Alphonso mango</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">40+ Orders this week</span></div></div><div class="ir"><p class="ip">₹80</p><span class="cb">★ Chef's Pick</span></div></div>
+      <div class="mi" data-cat="beverages" data-chef="false"><div><div class="vd"></div><p class="inn">Masala Chai</p><p class="ind">Aromatic spiced tea brewed to perfection</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹40</p></div></div>
+      <div class="mi" data-cat="beverages" data-chef="false"><div><div class="vd"></div><p class="inn">Cold Coffee</p><p class="ind">Blended iced coffee with a creamy froth</p><div class="ibd"><span class="bo">35+ Orders this week</span></div></div><div class="ir"><p class="ip">₹90</p></div></div>
+    </div>
+  </div>
+</section>
 
-    <div class="menu-grid" id="menuGrid">
-      <!-- Starters -->
-      <div class="menu-item" data-cat="starters">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Veg Spring Roll</p>
-          <p class="item-desc">Crispy golden rolls filled with spiced vegetables</p>
+<!-- DUSSEHRA -->
+<section id="duss">
+  <div class="dsparks" id="dsparks"></div>
+  <div class="si">
+    <div class="din">
+      <div class="fu">
+        <div class="dtag">🪔 Festival Exclusive · Dussehra 2025</div>
+        <h2 class="dh">Balaghat's Best<br>Seat for <em>Dussehra</em></h2>
+        <p class="dp">There is no better place to experience Balaghat's magnificent Dussehra than RedOak's terrace. As the iconic Ravan Dahan lights up the night sky and the city comes alive, your table is already set — steaming dishes, warm company, and the city's most spectacular festival view included.</p>
+        <div class="dfl">
+          <div class="dft"><div class="dfic">🎆</div>Premium terrace view overlooking the Dussehra mela grounds</div>
+          <div class="dft"><div class="dfic">🪑</div>Very limited seats — pre-booking opens 2 weeks before festival</div>
+          <div class="dft"><div class="dfic">🍽</div>Special festival thali and seasonal menu for the evening</div>
+          <div class="dft"><div class="dfic">👨‍👩‍👧</div>Family packages with reserved window-side seating</div>
         </div>
-        <div class="item-price">₹120</div>
+        <div class="dac">
+          <a href="https://wa.me/918770803523?text=Hi%20RedOak!%20I%20want%20to%20pre-book%20a%20Dussehra%20Festival%20Table%20for%202025!" target="_blank" class="bfest">🪔 Pre-Book Dussehra Table</a>
+          <a href="tel:08770803523" class="bs">📞 Call for Details</a>
+        </div>
       </div>
-      <div class="menu-item" data-cat="starters">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Paneer Tikka</p>
-          <p class="item-desc">Char-grilled cottage cheese with smoky spices</p>
+      <div class="fu">
+        <div class="dcrd">
+          <div class="dcbg"></div>
+          <span class="dsold">Sold Out Last Year</span>
+          <div class="dcbd">
+            <div class="dem">🪔</div>
+            <p class="dct">Festival View Table</p>
+            <p class="dcs">Dussehra · Balaghat · 2025</p>
+            <div class="dcnt" id="dcnt">
+              <div class="cit"><div class="cn" id="cD">--</div><div class="cl">Days</div></div>
+              <div class="cit"><div class="cn" id="cH">--</div><div class="cl">Hours</div></div>
+              <div class="cit"><div class="cn" id="cM">--</div><div class="cl">Mins</div></div>
+            </div>
+          </div>
         </div>
-        <div class="item-price">₹180</div>
-      </div>
-      <div class="menu-item" data-cat="starters">
-        <div class="item-info">
-          <div class="item-nonveg"></div>
-          <p class="item-name">Chicken Lollipop</p>
-          <p class="item-desc">Tender chicken drizzled with fiery chilli sauce</p>
-        </div>
-        <div class="item-price">₹200</div>
-      </div>
-      <div class="menu-item" data-cat="starters">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Hara Bhara Kebab</p>
-          <p class="item-desc">Spinach & pea kebabs with mint chutney</p>
-        </div>
-        <div class="item-price">₹140</div>
-      </div>
-      <!-- Main Course -->
-      <div class="menu-item" data-cat="main">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Kaju Butter Masala</p>
-          <p class="item-desc">Cashews in a rich, buttery tomato-cream sauce</p>
-        </div>
-        <div class="item-price">₹220</div>
-      </div>
-      <div class="menu-item" data-cat="main">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Mixed Veg Curry</p>
-          <p class="item-desc">Seasonal vegetables in aromatic spiced gravy</p>
-        </div>
-        <div class="item-price">₹160</div>
-      </div>
-      <div class="menu-item" data-cat="main">
-        <div class="item-info">
-          <div class="item-nonveg"></div>
-          <p class="item-name">Butter Chicken</p>
-          <p class="item-desc">Slow-cooked chicken in velvety makhani sauce</p>
-        </div>
-        <div class="item-price">₹250</div>
-      </div>
-      <div class="menu-item" data-cat="main">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Dal Makhani</p>
-          <p class="item-desc">Black lentils simmered overnight, topped with cream</p>
-        </div>
-        <div class="item-price">₹150</div>
-      </div>
-      <!-- Pizza -->
-      <div class="menu-item" data-cat="pizza">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Margarita Pizza</p>
-          <p class="item-desc">Classic pizza with fresh basil and mozzarella</p>
-        </div>
-        <div class="item-price">₹200</div>
-      </div>
-      <div class="menu-item" data-cat="pizza">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Paneer Tikka Pizza</p>
-          <p class="item-desc">Spiced paneer on a crispy stone-baked base</p>
-        </div>
-        <div class="item-price">₹240</div>
-      </div>
-      <div class="menu-item" data-cat="pizza">
-        <div class="item-info">
-          <div class="item-nonveg"></div>
-          <p class="item-name">Chicken BBQ Pizza</p>
-          <p class="item-desc">Smoky BBQ chicken with caramelised onions</p>
-        </div>
-        <div class="item-price">₹270</div>
-      </div>
-      <!-- Chinese -->
-      <div class="menu-item" data-cat="chinese">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Veg Manchurian</p>
-          <p class="item-desc">Fried vegetable balls in tangy manchurian sauce</p>
-        </div>
-        <div class="item-price">₹150</div>
-      </div>
-      <div class="menu-item" data-cat="chinese">
-        <div class="item-info">
-          <div class="item-nonveg"></div>
-          <p class="item-name">Chicken Fried Rice</p>
-          <p class="item-desc">Wok-tossed rice with egg, chicken and aromatics</p>
-        </div>
-        <div class="item-price">₹180</div>
-      </div>
-      <div class="menu-item" data-cat="chinese">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Hakka Noodles</p>
-          <p class="item-desc">Stir-fried noodles with crispy vegetables</p>
-        </div>
-        <div class="item-price">₹140</div>
-      </div>
-      <!-- Beverages -->
-      <div class="menu-item" data-cat="beverages">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Mango Lassi</p>
-          <p class="item-desc">Thick blended yogurt with Alphonso mango</p>
-        </div>
-        <div class="item-price">₹80</div>
-      </div>
-      <div class="menu-item" data-cat="beverages">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Masala Chai</p>
-          <p class="item-desc">Aromatic spiced tea brewed to perfection</p>
-        </div>
-        <div class="item-price">₹40</div>
-      </div>
-      <div class="menu-item" data-cat="beverages">
-        <div class="item-info">
-          <div class="item-veg"></div>
-          <p class="item-name">Cold Coffee</p>
-          <p class="item-desc">Blended iced coffee with a creamy froth</p>
-        </div>
-        <div class="item-price">₹90</div>
       </div>
     </div>
   </div>
@@ -1675,58 +425,57 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-visual fade-up">
-        <div class="about-corner-box">
-          <p class="corner-label">Since Forever</p>
-          <p class="corner-val">Balaghat's Own</p>
-        </div>
-        <div class="about-box">
-          <div class="about-box-inner">🏮</div>
-        </div>
-        <div class="about-stat-card">
-          <p class="stat-num">113+</p>
-          <p class="stat-text">Happy Guests</p>
+  <div class="si">
+    <div class="ag">
+      <div class="avis fu">
+        <div class="acor"><p class="acl">Balaghat's Own</p><p class="acv">Local · Loved · Trusted</p></div>
+        <div class="abox"><div class="abxin">🏮</div></div>
+        <div class="astat"><p class="asn">113+</p><p class="ast">Happy Guests</p></div>
+      </div>
+      <div class="fu">
+        <p class="sl">Our Story</p>
+        <h2 class="st">More Than<br>Just a <em>Meal</em></h2>
+        <br>
+        <p class="ap">RedOak Restaurant was born from a simple belief — that great food should feel like a warm embrace. Nestled in the heart of Balaghat, opposite the Government School Ground, we have built a place where families gather, friends laugh, and memories are made over steaming plates of food.</p>
+        <p class="ap">Our kitchen is dedicated to honest, flavourful cooking — from time-honoured Indian curries to handcrafted pizzas and satisfying Chinese dishes. Every plate is prepared with care, every guest treated with respect.</p>
+        <div class="aft">
+          <div class="af"><span class="afic">✨</span><div><p class="aft2">Aesthetic Ambience</p><p class="afd">A thoughtfully designed space that elevates every visit</p></div></div>
+          <div class="af"><span class="afic">🧑‍🍳</span><div><p class="aft2">Hygienic Kitchen</p><p class="afd">Prepared fresh, stored clean, served with pride</p></div></div>
+          <div class="af"><span class="afic">👨‍👩‍👧</span><div><p class="aft2">Family Friendly</p><p class="afd">A welcoming environment for all ages</p></div></div>
+          <div class="af"><span class="afic">💸</span><div><p class="aft2">Affordable Pricing</p><p class="afd">Premium experience from just Rs 200 per person</p></div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="about-text fade-up">
-        <p class="section-label">Our Story</p>
-        <h2 class="section-title">More Than<br>Just a <em>Meal</em></h2>
+<!-- QUALITY / CHEF -->
+<section id="quality">
+  <div class="si">
+    <div class="qg">
+      <div class="fu">
+        <p class="sl">Our Commitment</p>
+        <h2 class="st">Quality You<br><em>Can Taste</em></h2>
         <br>
-        <p class="about-p">RedOak Restaurant was born from a simple belief — that great food should feel like a warm embrace. Nestled in the heart of Balaghat, opposite the Government School Ground, we've built a place where families gather, friends laugh, and memories are made over steaming plates of food.</p>
-        <p class="about-p">Our kitchen is dedicated to honest, flavourful cooking — from time-honoured Indian curries to handcrafted pizzas and satisfying Chinese dishes. Every plate is prepared with care, every guest treated with respect.</p>
-        <p class="about-p">During Balaghat's beloved Dussehra celebrations, our terrace becomes one of the finest vantage points in the city — the perfect pairing of festival spirit and great food.</p>
-
-        <div class="about-features">
-          <div class="feat">
-            <span class="feat-icon">✨</span>
-            <div>
-              <p class="feat-title">Aesthetic Ambience</p>
-              <p class="feat-desc">A thoughtfully designed space that elevates every visit</p>
-            </div>
-          </div>
-          <div class="feat">
-            <span class="feat-icon">🧑‍🍳</span>
-            <div>
-              <p class="feat-title">Hygienic Kitchen</p>
-              <p class="feat-desc">Prepared fresh, stored clean, served with pride</p>
-            </div>
-          </div>
-          <div class="feat">
-            <span class="feat-icon">👨‍👩‍👧</span>
-            <div>
-              <p class="feat-title">Family Friendly</p>
-              <p class="feat-desc">A welcoming environment for all ages</p>
-            </div>
-          </div>
-          <div class="feat">
-            <span class="feat-icon">💸</span>
-            <div>
-              <p class="feat-title">Affordable Pricing</p>
-              <p class="feat-desc">Premium experience from just ₹200 per person</p>
-            </div>
+        <p class="ap" style="font-size:1rem;line-height:1.85">At RedOak, quality is not a tagline — it is a daily practice. Every ingredient is sourced fresh every morning. Every dish is cooked to order. Every surface in our kitchen is cleaned to the highest standard, so you can eat with complete peace of mind. This is not a chain. This is Balaghat's own premium restaurant.</p>
+        <br>
+        <div class="qcs">
+          <div class="qc"><span class="qci">🌿</span><p class="qct">Fresh Ingredients</p><p class="qcd">Sourced fresh daily from local Balaghat markets</p><span class="qcn">01</span></div>
+          <div class="qc"><span class="qci">🧼</span><p class="qct">Hygienic Kitchen</p><p class="qcd">Deep-cleaned daily, FSSAI compliant standards</p><span class="qcn">02</span></div>
+          <div class="qc"><span class="qci">🔥</span><p class="qct">Cooked to Order</p><p class="qcd">Nothing pre-made — every dish fresh on your order</p><span class="qcn">03</span></div>
+          <div class="qc"><span class="qci">🏡</span><p class="qct">Local and Proud</p><p class="qcd">Not a chain — a real Balaghat family restaurant</p><span class="qcn">04</span></div>
+        </div>
+      </div>
+      <div class="fu">
+        <div class="chfc">
+          <div class="chav">👨‍🍳</div>
+          <p class="chn">Chef Ramesh</p>
+          <p class="chr">Head Chef · RedOak Kitchen</p>
+          <p class="chq">"Every dish I make carries a memory — of my mother's kitchen, of Balaghat's markets at dawn, of guests who became family. I cook not just to feed, but to make people feel at home."</p>
+          <div class="chbs">
+            <span class="chb">15+ Yrs Experience</span>
+            <span class="chb">Local Ingredients</span>
+            <span class="chb">Made with Love</span>
           </div>
         </div>
       </div>
@@ -1734,50 +483,25 @@
   </div>
 </section>
 
-<!-- DIVIDER -->
-<div class="section-inner"><div class="divider"></div></div>
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="section-inner">
-    <div class="testimonials-header fade-up">
-      <p class="section-label">Guest Reviews</p>
-      <h2 class="section-title">What Guests <em>Say</em></h2>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card fade-up">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Excellent hospitality and well-balanced flavour. The service was warm and attentive — exactly what you want when dining out with family."</p>
-        <div class="review-author">
-          <div class="review-avatar">AR</div>
-          <div>
-            <p class="review-name">Amit R.</p>
-            <p class="review-meta">Google Review · Verified Diner</p>
-          </div>
-        </div>
+  <div class="si">
+    <div class="thdr fu"><p class="sl">Guest Reviews</p><h2 class="st">What Guests <em>Say</em></h2></div>
+    <div class="rg">
+      <div class="rc fu">
+        <div class="rstar">★★★★★</div>
+        <p class="rtxt">"Excellent hospitality and well-balanced flavour. The service was warm and attentive — exactly what you want when dining out with family in Balaghat."</p>
+        <div class="rauth"><div class="rav">AR</div><div><p class="rn">Amit Rajput</p><p class="rm">Verified Diner · Balaghat</p><p class="rp">⭐ Google Maps Review</p></div></div>
       </div>
-      <div class="review-card fade-up">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Ambience is good, tasty food and good service. The Kaju Masala was outstanding — rich, creamy and full of depth. Highly recommend!"</p>
-        <div class="review-author">
-          <div class="review-avatar">PS</div>
-          <div>
-            <p class="review-name">Priya S.</p>
-            <p class="review-meta">Google Review · Verified Diner</p>
-          </div>
-        </div>
+      <div class="rc fu">
+        <div class="rstar">★★★★★</div>
+        <p class="rtxt">"Ambience is good, tasty food and good service. The Kaju Masala was outstanding — rich, creamy and full of depth. Highly recommend to anyone in Balaghat!"</p>
+        <div class="rauth"><div class="rav">PS</div><div><p class="rn">Priya Sharma</p><p class="rm">Verified Diner · Balaghat</p><p class="rp">⭐ Google Maps Review</p></div></div>
       </div>
-      <div class="review-card fade-up">
-        <div class="review-stars">★★★★☆</div>
-        <p class="review-text">"Great place to watch Balaghat Dussehra while enjoying food. The view combined with great food makes this an unforgettable spot during festivals."</p>
-        <div class="review-author">
-          <div class="review-avatar">MK</div>
-          <div>
-            <p class="review-name">Manish K.</p>
-            <p class="review-meta">Google Review · Verified Diner</p>
-          </div>
-        </div>
+      <div class="rc fu">
+        <div class="rstar">★★★★☆</div>
+        <p class="rtxt">"Great place to watch Balaghat Dussehra while enjoying food. The view combined with great cuisine makes this the most unforgettable spot during festival season!"</p>
+        <div class="rauth"><div class="rav">MK</div><div><p class="rn">Manish Kumar</p><p class="rm">Verified Diner · Balaghat</p><p class="rp">⭐ Google Maps Review</p></div></div>
       </div>
     </div>
   </div>
@@ -1785,60 +509,22 @@
 
 <!-- LOCATION -->
 <section id="location">
-  <div class="section-inner">
-    <div class="location-grid">
-      <div class="location-info fade-up">
-        <p class="section-label">Find Us</p>
-        <h2 class="section-title">We're in the<br><em>Heart</em> of Balaghat</h2>
-
-        <div class="location-details">
-          <div class="loc-detail">
-            <div class="loc-icon">📍</div>
-            <div>
-              <p class="loc-label">Address</p>
-              <p class="loc-val">Gondia–Balaghat Rd, opposite Government School Ground, Chitragupt Nagar, Balaghat, Madhya Pradesh 481001</p>
-            </div>
-          </div>
-          <div class="loc-detail">
-            <div class="loc-icon">📞</div>
-            <div>
-              <p class="loc-label">Phone</p>
-              <p class="loc-val"><a href="tel:08770803523">087708 03523</a></p>
-            </div>
-          </div>
-          <div class="loc-detail">
-            <div class="loc-icon">🕙</div>
-            <div>
-              <p class="loc-label">Hours</p>
-              <p class="loc-val">Open daily until 11:00 PM</p>
-            </div>
-          </div>
-          <div class="loc-detail">
-            <div class="loc-icon">🗺</div>
-            <div>
-              <p class="loc-label">Landmark</p>
-              <p class="loc-val">Opposite Government School Ground — easily visible from the main road</p>
-            </div>
-          </div>
+  <div class="si">
+    <div class="locg">
+      <div class="fu">
+        <p class="sl">Find Us</p>
+        <h2 class="st">We're in the<br><em>Heart</em> of Balaghat</h2>
+        <div class="locd">
+          <div class="ld"><div class="ldic">📍</div><div><p class="ldl">Address</p><p class="ldv">Gondia–Balaghat Rd, opposite Government School Ground, Chitragupt Nagar, Balaghat, MP 481001</p></div></div>
+          <div class="ld"><div class="ldic">📞</div><div><p class="ldl">Phone</p><p class="ldv"><a href="tel:08770803523">087708 03523</a></p></div></div>
+          <div class="ld"><div class="ldic">🕙</div><div><p class="ldl">Hours</p><p class="ldv">Open daily · 11:00 AM – 11:00 PM</p></div></div>
+          <div class="ld"><div class="ldic">🗺</div><div><p class="ldl">Landmark</p><p class="ldv">Opposite Government School Ground — clearly visible from Gondia–Balaghat Road</p></div></div>
         </div>
-
-        <br>
-        <a href="https://maps.google.com/?q=RedOak+Restaurant+Balaghat" target="_blank" class="btn-primary">🗺 Get Directions</a>
+        <br><a href="https://maps.google.com/?q=RedOak+Restaurant+Balaghat" target="_blank" class="bp">🗺 Get Directions</a>
       </div>
-
-      <div class="map-container fade-up">
-        <div class="map-frame">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.8!2d80.1800!3d21.8260!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a2bb8e6f6c8b3c1%3A0xrestaurantid!2sRedOak+Restaurant!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-        <div class="map-overlay-bar">
-          <span class="map-address">📍 Chitragupt Nagar, Balaghat MP 481001</span>
-          <a href="https://maps.google.com/?q=RedOak+Restaurant+Balaghat" target="_blank" class="btn-nav">Open in Maps</a>
-        </div>
+      <div class="fu">
+        <div class="mapfr"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14767.2!2d80.1800!3d21.8260!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a27b8f8c0d1c0b1%3A0xredoakid!2sRedOak%20Restaurant!5e0!3m2!1sen!2sin!4v1!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div class="mapbar"><span class="maddr">📍 Chitragupt Nagar, Balaghat MP 481001</span><a href="https://maps.google.com/?q=RedOak+Restaurant+Balaghat" target="_blank" class="bnav">Open in Maps</a></div>
       </div>
     </div>
   </div>
@@ -1846,87 +532,48 @@
 
 <!-- RESERVATION -->
 <section id="reservation">
-  <div class="section-inner">
-    <div class="reservation-grid">
-      <div class="reservation-info fade-up">
-        <p class="section-label">Reservations</p>
-        <h2 class="section-title">Reserve Your<br><em>Table</em> Tonight</h2>
+  <div class="si">
+    <div class="resg">
+      <div class="fu">
+        <p class="sl">Reservations</p>
+        <h2 class="st">Reserve Your<br><em>Table</em> Tonight</h2>
         <br>
-        <p class="about-p" style="color: var(--text-dim); font-size: 1rem; line-height: 1.8;">
-          Skip the wait and secure your table in advance. Perfect for family dinners, date nights, and group celebrations. We'll make sure everything is ready when you arrive.
-        </p>
-        <div class="res-perks">
-          <p class="res-perk">Confirmed seating at your preferred time</p>
-          <p class="res-perk">Special occasion setups on request</p>
-          <p class="res-perk">Open daily until 11:00 PM</p>
-          <p class="res-perk">Both indoor and outdoor seating available</p>
-          <p class="res-perk">Vegetarian-friendly menu options</p>
+        <p class="ap" style="font-size:1rem;line-height:1.8">Skip the wait and secure your table in advance. Perfect for family dinners, date nights, and group celebrations.</p>
+        <div class="resperks">
+          <p class="rp2">Confirmed seating at your preferred time</p>
+          <p class="rp2">Special occasion setups on request</p>
+          <p class="rp2">Open daily until 11:00 PM</p>
+          <p class="rp2">Dussehra festival seating available</p>
+          <p class="rp2">Vegetarian-friendly options throughout</p>
         </div>
         <br><br>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="tel:08770803523" class="btn-primary">📞 Call to Reserve</a>
-          <a href="https://wa.me/918770803523" class="btn-secondary" target="_blank">💬 WhatsApp Us</a>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="tel:08770803523" class="bp">📞 Call to Reserve</a>
+          <a href="https://wa.me/918770803523" class="bwa" target="_blank">💬 WhatsApp Us</a>
         </div>
       </div>
-
-      <div class="reservation-form fade-up">
-        <p class="form-title">Make a Reservation</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">Full Name</label>
-            <input type="text" id="fname" placeholder="Your name">
+      <div class="fu">
+        <div class="rfm">
+          <p class="fmtitle">Make a Reservation</p>
+          <div class="frow">
+            <div class="fg"><label>Full Name</label><input type="text" id="fn" placeholder="Your name"></div>
+            <div class="fg"><label>Phone Number</label><input type="tel" id="fp" placeholder="+91 XXXXX XXXXX"></div>
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX">
+          <div class="frow">
+            <div class="fg"><label>Preferred Date</label><input type="date" id="fd"></div>
+            <div class="fg"><label>Preferred Time</label><select id="ft"><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option><option>10:00 PM</option></select></div>
           </div>
+          <div class="frow">
+            <div class="fg"><label>Number of Guests</label><select id="fg2"><option>1 Guest</option><option>2 Guests</option><option>3-4 Guests</option><option>5-6 Guests</option><option>7-10 Guests</option><option>10+ Guests</option></select></div>
+            <div class="fg"><label>Occasion</label><select id="fo"><option>Regular Dining</option><option>Birthday</option><option>Anniversary</option><option>Business Dinner</option><option>Dussehra Festival Table</option><option>Family Gathering</option></select></div>
+          </div>
+          <div class="fg"><label>Special Requests</label><textarea id="fsr" placeholder="Dietary requirements, seating preferences, or any special requests…"></textarea></div>
+          <button class="fsub" onclick="submitRes()">Confirm Reservation →</button>
+          <a href="https://wa.me/918770803523?text=Hello%20RedOak!%20I%27d%20like%20to%20place%20a%20quick%20food%20order." target="_blank" class="wao">
+            <span style="font-size:1.5rem">💬</span>
+            <div><p class="wot">Quick Order on WhatsApp</p><p class="wos">Prefer WhatsApp? Tap to order directly — no form needed</p></div>
+          </a>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="date">Preferred Date</label>
-            <input type="date" id="date">
-          </div>
-          <div class="form-group">
-            <label for="time">Preferred Time</label>
-            <select id="time">
-              <option>12:00 PM</option>
-              <option>1:00 PM</option>
-              <option>2:00 PM</option>
-              <option>7:00 PM</option>
-              <option>8:00 PM</option>
-              <option>9:00 PM</option>
-              <option>10:00 PM</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="guests">Number of Guests</label>
-            <select id="guests">
-              <option>1 Guest</option>
-              <option>2 Guests</option>
-              <option>3–4 Guests</option>
-              <option>5–6 Guests</option>
-              <option>7–10 Guests</option>
-              <option>10+ Guests</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="occasion">Occasion (Optional)</label>
-            <select id="occasion">
-              <option>Regular Dining</option>
-              <option>Birthday</option>
-              <option>Anniversary</option>
-              <option>Business Dinner</option>
-              <option>Family Gathering</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="notes">Special Requests</label>
-          <textarea id="notes" placeholder="Any dietary requirements, seating preferences, or special requests..."></textarea>
-        </div>
-        <button class="form-submit" onclick="submitReservation()">Confirm Reservation →</button>
       </div>
     </div>
   </div>
@@ -1934,15 +581,15 @@
 
 <!-- CTA -->
 <section id="cta">
-  <div class="cta-bg"></div>
-  <div class="cta-grid-lines"></div>
-  <div class="section-inner">
-    <div class="cta-content fade-up">
-      <h2 class="cta-title">Book Your Table<br><em>Today</em></h2>
-      <p class="cta-sub">Experience the finest casual dining in Balaghat. Great food, warm hospitality, and memories that last.</p>
-      <div class="cta-buttons">
-        <a href="tel:08770803523" class="btn-large">📞 <span>Call 087708 03523</span></a>
-        <a href="https://wa.me/918770803523" class="btn-large-outline" target="_blank">💬 <span>WhatsApp Us</span></a>
+  <div class="ctabg"></div><div class="ctagl"></div>
+  <div class="si">
+    <div class="ctain fu">
+      <h2 class="ctah">Book Your Table<br><em>Today</em></h2>
+      <p class="ctas">Experience the finest casual dining in Balaghat. Great food, warm hospitality, and memories that last a lifetime.</p>
+      <div class="ctabt">
+        <a href="tel:08770803523" class="blg">📞 Call 087708 03523</a>
+        <a href="https://wa.me/918770803523" target="_blank" class="blo">💬 WhatsApp Us</a>
+        <a href="https://wa.me/918770803523?text=Hi!%20I%20want%20to%20pre-book%20Dussehra%20Festival%20Table!" target="_blank" class="bfest">🪔 Dussehra Pre-Book</a>
       </div>
     </div>
   </div>
@@ -1950,172 +597,143 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="footer-logo"><span>Red</span>Oak Restaurant</span>
-        <p class="footer-tagline">Where every meal is an experience. Aesthetic dining in the heart of Balaghat since day one — crafted for families, celebrated by guests.</p>
-        <div class="footer-socials">
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">📸</a>
-          <a href="https://wa.me/918770803523" class="social-btn">💬</a>
-        </div>
+  <div class="si">
+    <div class="fttop">
+      <div>
+        <span class="flogo"><span>Red</span>Oak Restaurant</span>
+        <p class="ftg">Aesthetic dining in the heart of Balaghat. Built for families, celebrated by guests. The best seat in the city — especially during Dussehra.</p>
+        <div class="fsoc"><a href="#" class="sb">📘</a><a href="#" class="sb">📸</a><a href="https://wa.me/918770803523" class="sb">💬</a></div>
       </div>
       <div>
-        <p class="footer-col-title">Navigation</p>
-        <ul class="footer-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#location">Location</a></li>
-          <li><a href="#reservation">Reserve a Table</a></li>
-        </ul>
+        <p class="fct">Navigation</p>
+        <ul class="flks"><li><a href="#hero">Home</a></li><li><a href="#menu">Menu</a></li><li><a href="#duss">Festival Table</a></li><li><a href="#about">About Us</a></li><li><a href="#quality">Quality &amp; Chef</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#location">Location</a></li><li><a href="#reservation">Reserve</a></li></ul>
       </div>
       <div>
-        <p class="footer-col-title">Contact</p>
-        <ul class="footer-links">
-          <li><a href="tel:08770803523">📞 087708 03523</a></li>
-          <li><a href="https://wa.me/918770803523">💬 WhatsApp</a></li>
-          <li><a href="https://maps.google.com/?q=RedOak+Restaurant+Balaghat">📍 Get Directions</a></li>
-        </ul>
-        <br>
-        <p style="font-size: 0.8rem; color: var(--text-dim); line-height: 1.6;">Gondia–Balaghat Rd,<br>Chitragupt Nagar,<br>Balaghat, MP 481001</p>
+        <p class="fct">Contact</p>
+        <ul class="flks"><li><a href="tel:08770803523">📞 087708 03523</a></li><li><a href="https://wa.me/918770803523">💬 WhatsApp</a></li><li><a href="https://maps.google.com/?q=RedOak+Restaurant+Balaghat">📍 Get Directions</a></li></ul>
+        <br><p style="font-size:.8rem;color:var(--dim);line-height:1.7">Gondia–Balaghat Rd,<br>Chitragupt Nagar,<br>Balaghat, MP 481001</p>
       </div>
       <div>
-        <p class="footer-col-title">Opening Hours</p>
-        <div class="footer-hours">
-          <div class="hour-row">
-            <span class="hour-day">Mon – Thu</span>
-            <span class="hour-time">11AM – 11PM</span>
-          </div>
-          <div class="hour-row">
-            <span class="hour-day">Fri – Sat</span>
-            <span class="hour-time">11AM – 11PM</span>
-          </div>
-          <div class="hour-row">
-            <span class="hour-day">Sunday</span>
-            <span class="hour-time">12PM – 11PM</span>
-          </div>
-        </div>
-        <div class="open-badge">
-          <span class="open-dot"></span>
-          Open Now
-        </div>
+        <p class="fct">Opening Hours</p>
+        <div class="hrr"><span class="hrd">Mon – Sat</span><span class="hrt">11AM–11PM</span></div>
+        <div class="hrr"><span class="hrd">Sunday</span><span class="hrt">12PM–11PM</span></div>
+        <div class="hrr"><span class="hrd">Dussehra Eve</span><span class="hrt">10AM–12AM</span></div>
+        <div class="ob" id="footOb"><span class="od"></span><span id="footOt">Open Now</span></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 RedOak Restaurant · All Rights Reserved · Balaghat, MP</p>
-      <p class="footer-tagline-small">Aesthetic Dining in Balaghat</p>
+    <div class="ftbot">
+      <p class="ftcp">© 2025 RedOak Restaurant · All Rights Reserved · Balaghat, MP</p>
+      <p class="ftseo">Best Restaurant Balaghat · Pizza Balaghat · Family Dining Balaghat</p>
     </div>
   </div>
 </footer>
 
 <!-- FLOATING BUTTONS -->
-<div class="floating-call">
-  <a href="https://wa.me/918770803523" class="float-btn float-btn-wa" target="_blank">
-    <span class="float-icon">💬</span>
-    <span>WhatsApp</span>
-  </a>
-  <a href="tel:08770803523" class="float-btn float-btn-call">
-    <span class="float-icon">📞</span>
-    <span>Call Now</span>
-  </a>
+<div class="fstk">
+  <a href="https://wa.me/918770803523?text=Hi!%20I%20want%20to%20order%20food%20from%20RedOak!" target="_blank" class="fb fb-ord"><span>🍽</span><span>Quick Order</span></a>
+  <a href="https://wa.me/918770803523" target="_blank" class="fb fb-wa"><span>💬</span><span>WhatsApp</span></a>
+  <a href="tel:08770803523" class="fb fb-call"><span>📞</span><span>Call Now</span></a>
 </div>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+// CURSOR
+const cur=document.getElementById('cur'),cr=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(a)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';cr.style.width='52px';cr.style.height='52px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='8px';cur.style.height='8px';cr.style.width='34px';cr.style.height='34px'});
+});
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
+// NAV SCROLL
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>80));
+
+// OBSERVER
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+// LIVE STATUS
+function chk(){
+  const h=new Date().getHours(),m=new Date().getMinutes(),t=h*60+m;
+  const p=document.getElementById('lp'),lt=document.getElementById('lt');
+  const ob=document.getElementById('footOb'),ot=document.getElementById('footOt');
+  const op=t>=660&&t<1380;
+  p.className='lpill '+(op?'op':'cl');
+  lt.textContent=op?'We are Open now — Visit us till 11 PM':'Currently Closed — Opens at 11 AM';
+  ot.textContent=op?'Open Now':'Currently Closed';
+  if(ob){ob.style.color=op?'#2ecc71':'#e74c3c';ob.style.borderColor=op?'rgba(46,204,113,.3)':'rgba(231,76,60,.3)';ob.style.background=op?'rgba(46,204,113,.1)':'rgba(231,76,60,.1)';}
+}
+chk();setInterval(chk,60000);
+
+// MENU TABS
+const tabs=document.querySelectorAll('.tab'),chefBtn=document.getElementById('chefBtn'),items=document.querySelectorAll('.mi');
+let chefOn=false;
+tabs.forEach(t=>{
+  t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('on'));chefBtn.classList.remove('on');chefOn=false;t.classList.add('on');
+    const cat=t.dataset.cat;
+    items.forEach(i=>{i.style.display=(cat==='all'||i.dataset.cat===cat)?'flex':'none'});
   });
+});
+chefBtn.addEventListener('click',()=>{
+  chefOn=!chefOn;tabs.forEach(x=>x.classList.remove('on'));chefBtn.classList.toggle('on',chefOn);
+  items.forEach(i=>{i.style.display=(!chefOn||i.dataset.chef==='true')?'flex':'none'});
+});
 
-  function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    cursorRing.style.left = rx + 'px';
-    cursorRing.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
+// AMBIENT CANVAS
+(function(){
+  const c=document.getElementById('amb'),ctx=c.getContext('2d');
+  let W,H;const r=()=>{W=c.width=innerWidth;H=c.height=innerHeight};r();window.addEventListener('resize',r);
+  const pts=Array.from({length:85},()=>({x:Math.random()*2000,y:Math.random()*1200,vx:(Math.random()-.5)*.3,vy:-(Math.random()*.45+.1),r:Math.random()*3+1,a:Math.random()*.55,col:Math.random()>.5?'139,0,0':'201,168,76'}));
+  let t=0;
+  const draw=()=>{
+    t+=.004;ctx.clearRect(0,0,W,H);
+    const g1=ctx.createRadialGradient(W*.72+Math.sin(t)*25,H*.45,0,W*.72,H*.45,W*.42);
+    g1.addColorStop(0,'rgba(139,0,0,.13)');g1.addColorStop(1,'transparent');ctx.fillStyle=g1;ctx.fillRect(0,0,W,H);
+    const g2=ctx.createRadialGradient(W*.25+Math.cos(t)*.04*W,H*.6,0,W*.25,H*.6,W*.35);
+    g2.addColorStop(0,'rgba(107,66,38,.09)');g2.addColorStop(1,'transparent');ctx.fillStyle=g2;ctx.fillRect(0,0,W,H);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.a+=Math.sin(t*3+p.x*.01)*.007;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}p.a=Math.max(0,Math.min(.55,p.a));ctx.beginPath();ctx.arc(p.x/2000*W,p.y/1200*H,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(${p.col},${p.a})`;ctx.fill();});
+    requestAnimationFrame(draw);
+  };draw();
+})();
+
+// DUSSEHRA SPARKS
+(function(){
+  const c=document.getElementById('dsparks');
+  for(let i=0;i<35;i++){
+    const s=document.createElement('div');s.className='spark';const sz=Math.random()*4+2;const col=Math.random()>.5?'232,93,4':'201,168,76';
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;background:rgba(${col},${(Math.random()*.38+.22).toFixed(2)});box-shadow:0 0 ${sz*3}px rgba(${col},.8);--d:${(Math.random()*3+2).toFixed(1)}s;--dl:-${(Math.random()*5).toFixed(1)}s`;
+    c.appendChild(s);
   }
-  animRing();
+})();
 
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '14px';
-      cursor.style.height = '14px';
-      cursorRing.style.width = '52px';
-      cursorRing.style.height = '52px';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '8px';
-      cursor.style.height = '8px';
-      cursorRing.style.width = '36px';
-      cursorRing.style.height = '36px';
-    });
-  });
-
-  // Scroll nav
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 80);
-  });
-
-  // Intersection observer
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Menu tabs
-  const tabs = document.querySelectorAll('.tab-btn');
-  const items = document.querySelectorAll('.menu-item');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const cat = tab.dataset.cat;
-      items.forEach(item => {
-        const show = cat === 'all' || item.dataset.cat === cat;
-        item.style.display = show ? 'flex' : 'none';
-      });
-    });
-  });
-
-  // Reservation submit
-  function submitReservation() {
-    const name = document.getElementById('fname').value;
-    const phone = document.getElementById('phone').value;
-    const date = document.getElementById('date').value;
-    const time = document.getElementById('time').value;
-    const guests = document.getElementById('guests').value;
-    const notes = document.getElementById('notes').value;
-
-    if (!name || !phone || !date) {
-      alert('Please fill in your name, phone number, and preferred date.');
-      return;
-    }
-
-    const msg = `Hello RedOak Restaurant! I'd like to make a reservation.%0A%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0ATime: ${time}%0AGuests: ${guests}%0ANotes: ${notes || 'None'}`;
-    window.open(`https://wa.me/918770803523?text=${msg}`, '_blank');
+// COUNTDOWN (Dussehra Oct 2 2025)
+(function tick(){
+  const diff=new Date('2025-10-02T18:00:00')-new Date();
+  if(diff>0){
+    document.getElementById('cD').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');
+    document.getElementById('cH').textContent=String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+    document.getElementById('cM').textContent=String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+  } else {
+    document.getElementById('dcnt').innerHTML='<div style="font-family:Syne,sans-serif;font-size:.75rem;letter-spacing:.15em;color:#E85D04;text-transform:uppercase;padding:1rem">The Festival is Here! 🪔</div>';
   }
+  setTimeout(tick,30000);
+})();
 
-  // Smooth scroll for nav links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
+// RESERVATION
+function submitRes(){
+  const n=document.getElementById('fn').value,p=document.getElementById('fp').value,d=document.getElementById('fd').value;
+  const ti=document.getElementById('ft').value,g=document.getElementById('fg2').value,o=document.getElementById('fo').value,sr=document.getElementById('fsr').value;
+  if(!n||!p||!d){alert('Please fill in your name, phone, and preferred date.');return;}
+  const msg=`Hello RedOak Restaurant!%0A%0AI'd like to make a reservation.%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0ADate: ${d}%0ATime: ${encodeURIComponent(ti)}%0AGuests: ${encodeURIComponent(g)}%0AOccasion: ${encodeURIComponent(o)}%0ARequests: ${sr?encodeURIComponent(sr):'None'}`;
+  window.open(`https://wa.me/918770803523?text=${msg}`,'_blank');
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});
+});
 </script>
-
 </body>
 </html>
