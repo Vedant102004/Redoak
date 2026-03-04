@@ -161,6 +161,46 @@ nav.sc{box-shadow:0 4px 28px rgba(74,4,4,.1);border-bottom-color:rgba(74,4,4,.14
 .fu{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fu.vis{opacity:1;transform:translateY(0)}
 
+/* ── Staggered child reveal ── */
+.stagger-parent .stagger-child{opacity:0;transform:translateY(28px) scale(.97);transition:opacity .5s ease,transform .5s ease}
+.stagger-parent.vis .stagger-child:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stagger-parent.vis .stagger-child:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
+.stagger-parent.vis .stagger-child:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
+.stagger-parent.vis .stagger-child:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
+.stagger-parent.vis .stagger-child:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
+.stagger-parent.vis .stagger-child:nth-child(6){opacity:1;transform:none;transition-delay:.55s}
+.stagger-parent.vis .stagger-child:nth-child(7){opacity:1;transform:none;transition-delay:.65s}
+.stagger-parent.vis .stagger-child:nth-child(8){opacity:1;transform:none;transition-delay:.75s}
+.stagger-parent.vis .stagger-child:nth-child(n+9){opacity:1;transform:none;transition-delay:.85s}
+
+/* Pop-in keyframe for menu items */
+@keyframes popIn{0%{opacity:0;transform:translateY(22px) scale(.95)}70%{transform:translateY(-4px) scale(1.02)}100%{opacity:1;transform:none}}
+.mi.pop{animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both}
+
+/* ── Sound toggle button ── */
+.snd-btn{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:850;background:var(--b);color:var(--g);border:none;padding:.6rem .55rem;cursor:none;writing-mode:vertical-rl;font-family:'Poppins',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.4rem;border-radius:4px 0 0 4px;box-shadow:-3px 0 16px rgba(74,4,4,.2);transition:all .3s}
+.snd-btn:hover{background:var(--bb);padding-right:.75rem}
+.snd-ico{font-size:1rem;writing-mode:horizontal-tb}
+
+/* ── Testimonial Slider ── */
+.slider-wrap{position:relative;overflow:hidden;width:100%}
+.slider-track{display:flex;transition:transform .6s cubic-bezier(.77,0,.175,1);will-change:transform}
+.slider-track .rc{flex:0 0 calc(33.333% - 1rem);margin-right:1.5rem;min-width:0}
+.slider-dots{display:flex;justify-content:center;gap:.6rem;margin-top:2.5rem}
+.sdot{width:8px;height:8px;border-radius:50%;background:rgba(74,4,4,.2);border:none;cursor:none;transition:all .35s;padding:0}
+.sdot.on{background:var(--g);transform:scale(1.3)}
+.slider-arrows{display:flex;gap:1rem;justify-content:center;margin-top:1.5rem}
+.sarr{width:44px;height:44px;border:1.5px solid rgba(74,4,4,.2);background:var(--cr);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:none;font-size:1rem;color:var(--b);transition:all .3s}
+.sarr:hover{background:var(--b);color:var(--cr);border-color:var(--b);box-shadow:0 4px 18px var(--bglow)}
+/* auto-play progress bar under slider */
+.slider-progress{height:2px;background:rgba(74,4,4,.1);margin-top:1.5rem;border-radius:2px;overflow:hidden}
+.slider-bar{height:100%;background:var(--g);width:0%;transition:width .1s linear}
+
+@media(max-width:960px){
+  .slider-track .rc{flex:0 0 calc(100% - 1rem)}
+  .snd-btn{display:none}
+}
+
 /* MENU */
 #menu{padding:9rem 0;background:var(--cr)}
 .mhdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem}
@@ -221,7 +261,7 @@ input:checked + .vsl::before{transform:translateX(20px)}
 /* DUSSEHRA */
 #duss{position:relative;padding:0;overflow:hidden;background:var(--dk);min-height:85vh;display:flex;align-items:center}
 /* Real image bg */
-.duss-img-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=1400&q=80') center/cover no-repeat;opacity:.3}
+.duss-img-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1400&q=80') center/cover no-repeat;opacity:.3}
 .duss-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,2,2,.92) 55%,rgba(10,2,2,.55) 100%)}
 .dsparks{position:absolute;inset:0;z-index:1;overflow:hidden}
 .spark{position:absolute;border-radius:50%;animation:spk var(--d,3s) ease-in-out infinite var(--dl,0s)}
@@ -235,11 +275,26 @@ input:checked + .vsl::before{transform:translateX(20px)}
 .dft{display:flex;align-items:center;gap:.9rem;font-family:'Poppins',sans-serif;font-size:.84rem;font-weight:300;color:rgba(255,249,241,.62)}
 .dfic{width:36px;height:36px;flex-shrink:0;background:rgba(200,80,0,.15);border:1px solid rgba(200,80,0,.3);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
 .dac{display:flex;gap:1rem;flex-wrap:wrap}
-/* Dussehra right side — view card */
-.dv-card{position:relative;border:1px solid rgba(212,175,55,.25);overflow:hidden;aspect-ratio:4/5}
-.dv-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1598136490929-292a0a7890c2?w=800&q=80') center/cover no-repeat;opacity:.6;transition:opacity .5s}
-.dv-card:hover .dv-img{opacity:.8}
-.dv-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(10,2,2,.9) 100%)}
+/* Dussehra card - multi-layer rich visual */
+.dv-card{position:relative;border:1px solid rgba(212,175,55,.3);overflow:hidden;aspect-ratio:4/5;border-radius:3px}
+.dv-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80') center/cover no-repeat;opacity:.65;transition:opacity .5s}
+.dv-card:hover .dv-img{opacity:.75}
+/* Warm festival color overlay on top */
+.dv-fire-ov{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(ellipse 70% 50% at 50% 70%, rgba(200,80,0,.55), transparent),
+  radial-gradient(ellipse 100% 40% at 50% 100%, rgba(10,2,2,.95), transparent 80%),
+  linear-gradient(to bottom, rgba(10,2,2,.35) 0%, transparent 40%);
+  pointer-events:none}
+/* Animated fire glow behind diya */
+.dv-glow{position:absolute;bottom:38%;left:50%;transform:translateX(-50%);z-index:1;
+  width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,140,0,.5) 0%, rgba(200,60,0,.25) 40%, transparent 70%);
+  animation:glowPulse 2s ease-in-out infinite;filter:blur(8px)}
+@keyframes glowPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:.6}50%{transform:translateX(-50%) scale(1.35);opacity:.9}}
+/* Floating feature chips on card */
+.dv-chips{position:absolute;top:1.2rem;left:1.2rem;z-index:3;display:flex;flex-direction:column;gap:.5rem}
+.dv-chip{background:rgba(10,2,2,.75);border:1px solid rgba(212,175,55,.35);padding:.35rem .75rem;backdrop-filter:blur(8px);display:flex;align-items:center;gap:.45rem}
+.dv-chip span{font-family:'Poppins',sans-serif;font-size:.56rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,249,241,.8)}
 .dv-body{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;z-index:2;padding:2.5rem;text-align:center}
 .dem{font-size:3.5rem;margin-bottom:.8rem;animation:dg 2s ease-in-out infinite alternate}
 @keyframes dg{from{filter:drop-shadow(0 0 14px rgba(200,80,0,.5))}to{filter:drop-shadow(0 0 45px rgba(200,80,0,.95))}}
@@ -556,6 +611,12 @@ footer{background:var(--dk);border-top:2px solid rgba(212,175,55,.18);padding:5r
   <div class="lb"><div class="lf"></div></div>
 </div>
 
+<!-- SOUND TOGGLE -->
+<button class="snd-btn" id="sndBtn" onclick="toggleSound()" title="Toggle sound effects">
+  <span class="snd-ico" id="sndIco">🔇</span>
+  <span>Sound</span>
+</button>
+
 <!-- CUSTOM CURSOR -->
 <div id="cur-wrap" style="background:transparent"><div class="cur-fork" style="background:transparent"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="background:transparent;overflow:visible"><path d="M4 2v6c0 1.1.9 2 2 2h1v12h2V10h1c1.1 0 2-.9 2-2V2h-1v5H8V2H7v5H6V2H4z" fill="#D4AF37"/><path d="M15 2c0 0-2 2-2 5s2 4 2 6v9h2V13c0-2 2-3 2-6s-2-5-2-5" fill="#D4AF37" opacity=".7"/><circle cx="16" cy="7" r="1.5" fill="#E8CC6A" opacity=".9"/></svg></div></div>
 <div class="cur-ring" id="curR"></div>
@@ -651,28 +712,28 @@ footer{background:var(--dk);border-top:2px solid rgba(212,175,55,.18);padding:5r
     </div>
 
     <!-- Visual circular category icons with images -->
-    <div class="mcat-grid fu" id="mcatGrid">
-      <div class="mcat sel" data-cat="all" onclick="selCat(this,'all')">
+    <div class="mcat-grid fu stagger-parent" id="mcatGrid">
+      <div class="mcat stagger-child sel" data-cat="all" onclick="selCat(this,'all')">
         <div class="mcat-img" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=150&q=80')"></div>
         <p class="mcat-lbl">All Items</p>
       </div>
-      <div class="mcat" data-cat="starters" onclick="selCat(this,'starters')">
+      <div class="mcat stagger-child" data-cat="starters" onclick="selCat(this,'starters')">
         <div class="mcat-img" style="background-image:url('https://images.unsplash.com/photo-1645696301019-35adcc18cbed?w=150&q=80')"></div>
         <p class="mcat-lbl">Starters</p>
       </div>
-      <div class="mcat" data-cat="main" onclick="selCat(this,'main')">
+      <div class="mcat stagger-child" data-cat="main" onclick="selCat(this,'main')">
         <div class="mcat-img" style="background-image:url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=150&q=80')"></div>
         <p class="mcat-lbl">Main Course</p>
       </div>
-      <div class="mcat" data-cat="pizza" onclick="selCat(this,'pizza')">
+      <div class="mcat stagger-child" data-cat="pizza" onclick="selCat(this,'pizza')">
         <div class="mcat-img" style="background-image:url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=150&q=80')"></div>
         <p class="mcat-lbl">Pizza</p>
       </div>
-      <div class="mcat" data-cat="chinese" onclick="selCat(this,'chinese')">
+      <div class="mcat stagger-child" data-cat="chinese" onclick="selCat(this,'chinese')">
         <div class="mcat-img" style="background-image:url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=150&q=80')"></div>
         <p class="mcat-lbl">Chinese</p>
       </div>
-      <div class="mcat" data-cat="beverages" onclick="selCat(this,'beverages')">
+      <div class="mcat stagger-child" data-cat="beverages" onclick="selCat(this,'beverages')">
         <div class="mcat-img" style="background-image:url('https://images.unsplash.com/photo-1544145945-f90425340c7e?w=150&q=80')"></div>
         <p class="mcat-lbl">Beverages</p>
       </div>
@@ -704,57 +765,57 @@ footer{background:var(--dk);border-top:2px solid rgba(212,175,55,.18);padding:5r
       </div>
     </div>
 
-    <div class="mgrid" id="mgrid">
+    <div class="mgrid stagger-parent fu" id="mgrid">
       <!-- data-veg data-spicy data-kids for filter support -->
-      <div class="mi" data-cat="starters" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="starters" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Veg Spring Roll</p><p class="ind">Crispy golden rolls filled with spiced vegetables</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹120</p></div>
       </div>
-      <div class="mi" data-cat="starters" data-chef="true" data-veg="true" data-spicy="true" data-kids="false">
+      <div class="mi stagger-child" data-cat="starters" data-chef="true" data-veg="true" data-spicy="true" data-kids="false">
         <div><div class="vd"></div><p class="inn">Paneer Tikka</p><p class="ind">Char-grilled cottage cheese with smoky spices</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">50+ Orders this week</span></div></div><div class="ir"><p class="ip">₹180</p><span class="cb">👑 Chef's Pick</span></div>
       </div>
-      <div class="mi" data-cat="starters" data-chef="false" data-veg="false" data-spicy="true" data-kids="false">
+      <div class="mi stagger-child" data-cat="starters" data-chef="false" data-veg="false" data-spicy="true" data-kids="false">
         <div><div class="nd"></div><p class="inn">Chicken Lollipop</p><p class="ind">Tender chicken drizzled with fiery chilli sauce</p><div class="ibd"><span class="bo">80+ Orders this week</span></div></div><div class="ir"><p class="ip">₹200</p></div>
       </div>
-      <div class="mi" data-cat="starters" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="starters" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Hara Bhara Kebab</p><p class="ind">Spinach and pea kebabs with mint chutney</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹140</p></div>
       </div>
-      <div class="mi" data-cat="main" data-chef="true" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="main" data-chef="true" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Kaju Butter Masala</p><p class="ind">Cashews in a rich, buttery tomato-cream sauce</p><div class="ibd"><span class="bm">Chef's Kiss 😘</span><span class="bo">100+ Orders this week</span></div></div><div class="ir"><p class="ip">₹220</p><span class="cb">👑 Chef's Pick</span><span class="bsb">🔥 Best Seller</span></div>
       </div>
-      <div class="mi" data-cat="main" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="main" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Mixed Veg Curry</p><p class="ind">Seasonal vegetables in aromatic spiced gravy</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹160</p></div>
       </div>
-      <div class="mi" data-cat="main" data-chef="true" data-veg="false" data-spicy="false" data-kids="false">
+      <div class="mi stagger-child" data-cat="main" data-chef="true" data-veg="false" data-spicy="false" data-kids="false">
         <div><div class="nd"></div><p class="inn">Butter Chicken</p><p class="ind">Slow-cooked chicken in velvety makhani sauce</p><div class="ibd"><span class="bo">90+ Orders this week</span></div></div><div class="ir"><p class="ip">₹250</p><span class="cb">👑 Chef's Pick</span></div>
       </div>
-      <div class="mi" data-cat="main" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="main" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Dal Makhani</p><p class="ind">Black lentils simmered overnight, topped with cream</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹150</p></div>
       </div>
-      <div class="mi" data-cat="pizza" data-chef="true" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="pizza" data-chef="true" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Margarita Pizza</p><p class="ind">Classic pizza with fresh basil and mozzarella</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">60+ Orders this week</span></div></div><div class="ir"><p class="ip">₹200</p><span class="cb">👑 Chef's Pick</span><span class="bsb">🔥 Best Seller</span></div>
       </div>
-      <div class="mi" data-cat="pizza" data-chef="false" data-veg="true" data-spicy="true" data-kids="false">
+      <div class="mi stagger-child" data-cat="pizza" data-chef="false" data-veg="true" data-spicy="true" data-kids="false">
         <div><div class="vd"></div><p class="inn">Paneer Tikka Pizza</p><p class="ind">Spiced paneer on a crispy stone-baked base</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹240</p></div>
       </div>
-      <div class="mi" data-cat="pizza" data-chef="false" data-veg="false" data-spicy="false" data-kids="false">
+      <div class="mi stagger-child" data-cat="pizza" data-chef="false" data-veg="false" data-spicy="false" data-kids="false">
         <div><div class="nd"></div><p class="inn">Chicken BBQ Pizza</p><p class="ind">Smoky BBQ chicken with caramelised onions</p><div class="ibd"><span class="bo">45+ Orders this week</span></div></div><div class="ir"><p class="ip">₹270</p></div>
       </div>
-      <div class="mi" data-cat="chinese" data-chef="false" data-veg="true" data-spicy="true" data-kids="false">
+      <div class="mi stagger-child" data-cat="chinese" data-chef="false" data-veg="true" data-spicy="true" data-kids="false">
         <div><div class="vd"></div><p class="inn">Veg Manchurian</p><p class="ind">Fried vegetable balls in tangy manchurian sauce</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹150</p></div>
       </div>
-      <div class="mi" data-cat="chinese" data-chef="false" data-veg="false" data-spicy="true" data-kids="false">
+      <div class="mi stagger-child" data-cat="chinese" data-chef="false" data-veg="false" data-spicy="true" data-kids="false">
         <div><div class="nd"></div><p class="inn">Chicken Fried Rice</p><p class="ind">Wok-tossed rice with egg, chicken and aromatics</p><div class="ibd"><span class="bo">70+ Orders this week</span></div></div><div class="ir"><p class="ip">₹180</p></div>
       </div>
-      <div class="mi" data-cat="chinese" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="chinese" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Hakka Noodles</p><p class="ind">Stir-fried noodles with crispy vegetables</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹140</p></div>
       </div>
-      <div class="mi" data-cat="beverages" data-chef="true" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="beverages" data-chef="true" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Mango Lassi</p><p class="ind">Thick blended yogurt with Alphonso mango</p><div class="ibd"><span class="bm">Must Try</span><span class="bo">40+ Orders this week</span></div></div><div class="ir"><p class="ip">₹80</p><span class="cb">👑 Chef's Pick</span></div>
       </div>
-      <div class="mi" data-cat="beverages" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="beverages" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Masala Chai</p><p class="ind">Aromatic spiced tea brewed to perfection</p><div class="ibd"><span class="bm">Must Try</span></div></div><div class="ir"><p class="ip">₹40</p></div>
       </div>
-      <div class="mi" data-cat="beverages" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
+      <div class="mi stagger-child" data-cat="beverages" data-chef="false" data-veg="true" data-spicy="false" data-kids="true">
         <div><div class="vd"></div><p class="inn">Cold Coffee</p><p class="ind">Blended iced coffee with a creamy froth</p><div class="ibd"><span class="bo">35+ Orders this week</span></div></div><div class="ir"><p class="ip">₹90</p></div>
       </div>
     </div>
@@ -766,6 +827,8 @@ footer{background:var(--dk);border-top:2px solid rgba(212,175,55,.18);padding:5r
   <div class="duss-img-bg"></div>
   <div class="duss-ov"></div>
   <div class="dsparks" id="dsparks"></div>
+  <!-- Firework Canvas -->
+  <canvas id="fwCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;opacity:.85"></canvas>
   <div class="si">
     <div class="din">
       <div class="fu">
@@ -786,7 +849,14 @@ footer{background:var(--dk);border-top:2px solid rgba(212,175,55,.18);padding:5r
       <div class="fu">
         <div class="dv-card">
           <div class="dv-img"></div>
-          <div class="dv-ov"></div>
+          <div class="dv-fire-ov"></div>
+          <div class="dv-glow"></div>
+          <!-- feature chips top-left -->
+          <div class="dv-chips">
+            <div class="dv-chip"><span>🎆</span><span>Terrace View</span></div>
+            <div class="dv-chip"><span>🍽</span><span>Festival Thali</span></div>
+            <div class="dv-chip"><span>👨‍👩‍👧</span><span>Family Seating</span></div>
+          </div>
           <span class="dsold">Sold Out Last Year</span>
           <div class="dv-body">
             <div class="dem">🪔</div>
@@ -899,23 +969,49 @@ footer{background:var(--dk);border-top:2px solid rgba(212,175,55,.18);padding:5r
 <section id="testimonials">
   <div class="si">
     <div class="thdr fu"><p class="sl" style="justify-content:center">Guest Reviews</p><h2 class="st" style="text-align:center">What Guests <em>Say</em></h2></div>
-    <div class="rg">
-      <div class="rc fu">
-        <div class="rgsrow"><div class="rstar">★★★★★</div><span class="rgv">✓ Google Verified</span></div>
-        <p class="rtxt">"Excellent hospitality and well-balanced flavour. The service was warm and attentive — exactly what you want when dining out with family in Balaghat."</p>
-        <div class="rauth"><div class="rav">AR</div><div><p class="rn">Amit Rajput</p><p class="rm">Balaghat · Local Guide</p><p class="rp">⭐ Google Maps Review</p></div></div>
-      </div>
-      <div class="rc fu">
-        <div class="rgsrow"><div class="rstar">★★★★★</div><span class="rgv">✓ Google Verified</span></div>
-        <p class="rtxt">"Ambience is good, tasty food and good service. The Kaju Masala was outstanding — rich, creamy and full of depth. Highly recommend to anyone in Balaghat!"</p>
-        <div class="rauth"><div class="rav">PS</div><div><p class="rn">Priya Sharma</p><p class="rm">Balaghat · Regular Visitor</p><p class="rp">⭐ Google Maps Review</p></div></div>
-      </div>
-      <div class="rc fu">
-        <div class="rgsrow"><div class="rstar">★★★★☆</div><span class="rgv">✓ Google Verified</span></div>
-        <p class="rtxt">"Great place to watch Balaghat Dussehra while enjoying food. The view combined with great cuisine makes this the most unforgettable spot during festival season!"</p>
-        <div class="rauth"><div class="rav">MK</div><div><p class="rn">Manish Kumar</p><p class="rm">Balaghat · Festival Visitor</p><p class="rp">⭐ Google Maps Review</p></div></div>
+    <!-- SLIDER -->
+    <div class="slider-wrap fu" id="sliderWrap">
+      <div class="slider-track" id="sliderTrack">
+        <div class="rc">
+          <div class="rgsrow"><div class="rstar">★★★★★</div><span class="rgv">✓ Google Verified</span></div>
+          <p class="rtxt">"Excellent hospitality and well-balanced flavour. The service was warm and attentive — exactly what you want when dining out with family in Balaghat."</p>
+          <div class="rauth"><div class="rav">AR</div><div><p class="rn">Amit Rajput</p><p class="rm">Balaghat · Local Guide</p><p class="rp">⭐ Google Maps Review</p></div></div>
+        </div>
+        <div class="rc">
+          <div class="rgsrow"><div class="rstar">★★★★★</div><span class="rgv">✓ Google Verified</span></div>
+          <p class="rtxt">"Ambience is good, tasty food and good service. The Kaju Masala was outstanding — rich, creamy and full of depth. Highly recommend to anyone in Balaghat!"</p>
+          <div class="rauth"><div class="rav">PS</div><div><p class="rn">Priya Sharma</p><p class="rm">Balaghat · Regular Visitor</p><p class="rp">⭐ Google Maps Review</p></div></div>
+        </div>
+        <div class="rc">
+          <div class="rgsrow"><div class="rstar">★★★★☆</div><span class="rgv">✓ Google Verified</span></div>
+          <p class="rtxt">"Great place to watch Balaghat Dussehra while enjoying food. The view combined with great cuisine makes this the most unforgettable spot during festival season!"</p>
+          <div class="rauth"><div class="rav">MK</div><div><p class="rn">Manish Kumar</p><p class="rm">Balaghat · Festival Visitor</p><p class="rp">⭐ Google Maps Review</p></div></div>
+        </div>
+        <div class="rc">
+          <div class="rgsrow"><div class="rstar">★★★★★</div><span class="rgv">✓ Google Verified</span></div>
+          <p class="rtxt">"Pizza here is amazing — crispy base, generous toppings, and best of all the price is very reasonable. Best pizza I've had in Balaghat, hands down!"</p>
+          <div class="rauth"><div class="rav">RP</div><div><p class="rn">Rohit Patel</p><p class="rm">Balaghat · Pizza Lover</p><p class="rp">⭐ Google Maps Review</p></div></div>
+        </div>
+        <div class="rc">
+          <div class="rgsrow"><div class="rstar">★★★★★</div><span class="rgv">✓ Google Verified</span></div>
+          <p class="rtxt">"Took my family here for my birthday dinner. The staff was incredibly warm and even brought a surprise dessert. Truly felt special. RedOak is our new family favourite!"</p>
+          <div class="rauth"><div class="rav">SJ</div><div><p class="rn">Sunita Jain</p><p class="rm">Balaghat · Family Diner</p><p class="rp">⭐ Google Maps Review</p></div></div>
+        </div>
+        <div class="rc">
+          <div class="rgsrow"><div class="rstar">★★★★☆</div><span class="rgv">✓ Google Verified</span></div>
+          <p class="rtxt">"Hakka noodles and Veg Manchurian were absolutely on point. The Chinese section is surprisingly authentic. Perfect evening out — will definitely be coming back!"</p>
+          <div class="rauth"><div class="rav">AK</div><div><p class="rn">Anil Kumar</p><p class="rm">Balaghat · Chinese Food Fan</p><p class="rp">⭐ Google Maps Review</p></div></div>
+        </div>
       </div>
     </div>
+    <!-- Dots + Arrows + Progress -->
+    <div class="slider-dots" id="sliderDots"></div>
+    <div class="slider-arrows">
+      <button class="sarr" id="sPrev" onclick="slideTo(sCur-1)">←</button>
+      <button class="sarr" id="sNext" onclick="slideTo(sCur+1)">→</button>
+    </div>
+    <div class="slider-progress"><div class="slider-bar" id="sBar"></div></div>
+
     <div class="sp-strip">
       <div class="sp-in">
         <div class="sp-item"><div class="sp-ico">⭐</div><div class="sp-t">4.3 / 5 Rating</div><div class="sp-s">On Google Maps</div></div>
@@ -1133,9 +1229,245 @@ window.addEventListener('scroll',()=>{
   if(pb) pb.style.transform=`translateY(${scrollY*.2}px)`;
 });
 
-// OBSERVER
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.1});
+// OBSERVER — with stagger pop support
+const obs=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting){
+    x.target.classList.add('vis');
+    // If it's a stagger parent, also mark vis on it so CSS kicks in
+    // Menu items pop-in with stagger via JS
+    if(x.target.id==='mgrid'){
+      x.target.querySelectorAll('.mi').forEach((mi,i)=>{
+        setTimeout(()=>{mi.classList.add('pop')},i*80);
+      });
+    }
+  }
+}),{threshold:.1});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+// ====== SOUND ENGINE (Web Audio API — no files needed) ======
+let soundOn=false;
+let audioCtx=null;
+function getAudioCtx(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();return audioCtx;}
+function playTone(freq=440,type='sine',dur=0.12,vol=0.08){
+  if(!soundOn)return;
+  try{
+    const ctx=getAudioCtx();
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);
+    o.type=type;o.frequency.setValueAtTime(freq,ctx.currentTime);
+    g.gain.setValueAtTime(vol,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+dur);
+    o.start();o.stop(ctx.currentTime+dur);
+  }catch(e){}
+}
+// Distinct sounds for different interactions
+function sndClick(){playTone(880,'sine',.1,.07);}             // soft click
+function sndPop(){playTone(660,'triangle',.08,.06);}           // pop
+function sndWhoosh(){                                           // category switch
+  if(!soundOn)return;
+  try{
+    const ctx=getAudioCtx(),o=ctx.createOscillator(),g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);o.type='sine';
+    o.frequency.setValueAtTime(300,ctx.currentTime);
+    o.frequency.exponentialRampToValueAtTime(700,ctx.currentTime+.15);
+    g.gain.setValueAtTime(.08,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.18);
+    o.start();o.stop(ctx.currentTime+.18);
+  }catch(e){}
+}
+function toggleSound(){
+  soundOn=!soundOn;
+  document.getElementById('sndIco').textContent=soundOn?'🔊':'🔇';
+  if(soundOn){getAudioCtx();playTone(528,'sine',.2,.1);}
+}
+// Attach click sounds to interactive elements
+document.addEventListener('click',e=>{
+  if(e.target.closest('.mcat')||e.target.closest('.tab')||e.target.closest('.tchef'))sndWhoosh();
+  else if(e.target.closest('.qf'))sndPop();
+  else if(e.target.closest('.bp,.bw,.bf,.bnav,.ctag'))sndClick();
+  else if(e.target.closest('.sarr'))sndPop();
+});
+
+// ====== TESTIMONIAL AUTO SLIDER ======
+const track=document.getElementById('sliderTrack');
+const dotsC=document.getElementById('sliderDots');
+const sBarEl=document.getElementById('sBar');
+let sCur=0,sTotal=0,sAuto,sBarAnim,sBarStart,sPaused=false;
+const AUTO_DELAY=4000;
+
+function initSlider(){
+  if(!track)return;
+  const cards=track.querySelectorAll('.rc');
+  sTotal=cards.length;
+  const perView=window.innerWidth>960?3:1;
+  const maxSlide=Math.max(0,sTotal-perView);
+  // build dots
+  dotsC.innerHTML='';
+  for(let i=0;i<=maxSlide;i++){
+    const d=document.createElement('button');d.className='sdot'+(i===0?' on':'');
+    d.onclick=()=>{slideTo(i);sndPop();};dotsC.appendChild(d);
+  }
+  slideTo(0);startAutoPlay();
+}
+function slideTo(idx){
+  if(!track)return;
+  const perView=window.innerWidth>960?3:1;
+  const cardW=track.querySelector('.rc')?.offsetWidth||300;
+  const gap=24;
+  const maxSlide=Math.max(0,sTotal-perView);
+  sCur=((idx%Math.max(1,maxSlide+1))+Math.max(1,maxSlide+1))%(maxSlide+1);
+  track.style.transform=`translateX(-${sCur*(cardW+gap)}px)`;
+  document.querySelectorAll('.sdot').forEach((d,i)=>d.classList.toggle('on',i===sCur));
+  resetBar();
+}
+function startAutoPlay(){
+  clearInterval(sAuto);
+  sAuto=setInterval(()=>{if(!sPaused)slideTo(sCur+1);},AUTO_DELAY);
+  resetBar();
+}
+function resetBar(){
+  clearTimeout(sBarAnim);sBarEl.style.transition='none';sBarEl.style.width='0%';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    sBarEl.style.transition=`width ${AUTO_DELAY}ms linear`;
+    sBarEl.style.width='100%';
+  }));
+}
+// Pause on hover
+const sw=document.getElementById('sliderWrap');
+if(sw){
+  sw.addEventListener('mouseenter',()=>{sPaused=true;sBarEl.style.animationPlayState='paused';});
+  sw.addEventListener('mouseleave',()=>{sPaused=false;});
+}
+// Touch swipe
+let tStart=0;
+if(track){
+  track.addEventListener('touchstart',e=>tStart=e.touches[0].clientX,{passive:true});
+  track.addEventListener('touchend',e=>{
+    const diff=tStart-e.changedTouches[0].clientX;
+    if(Math.abs(diff)>40)slideTo(diff>0?sCur+1:sCur-1);
+  });
+}
+window.addEventListener('resize',initSlider);
+setTimeout(initSlider,200);
+
+// ====== 🎆 DUSSEHRA FIREWORKS (Canvas) ======
+(function(){
+  const c=document.getElementById('fwCanvas');
+  if(!c)return;
+  const ctx=c.getContext('2d');
+  let W,H;
+  function rs(){
+    const sec=document.getElementById('duss');
+    W=c.width=sec.offsetWidth;H=c.height=sec.offsetHeight;
+  }
+  rs();window.addEventListener('resize',rs);
+
+  const COLORS=['#D4AF37','#E8CC6A','#FF6B00','#FF9A3C','#FFD700','#FF4500','#FFF176','#F97316'];
+  class Particle{
+    constructor(x,y,color){
+      this.x=x;this.y=y;this.color=color;
+      const angle=Math.random()*Math.PI*2;
+      const speed=Math.random()*4+2;
+      this.vx=Math.cos(angle)*speed;this.vy=Math.sin(angle)*speed;
+      this.life=1;this.decay=Math.random()*.018+.012;
+      this.r=Math.random()*2.5+1;this.trail=[];
+    }
+    update(){
+      this.trail.push({x:this.x,y:this.y});
+      if(this.trail.length>6)this.trail.shift();
+      this.x+=this.vx;this.y+=this.vy;
+      this.vy+=.06;this.vx*=.98;this.life-=this.decay;
+    }
+    draw(){
+      // Trail
+      for(let i=0;i<this.trail.length;i++){
+        const a=(i/this.trail.length)*this.life*.5;
+        ctx.beginPath();ctx.arc(this.trail[i].x,this.trail[i].y,this.r*.5,0,Math.PI*2);
+        ctx.fillStyle=this.color.replace(')',`,${a})`).replace('rgb','rgba');
+        ctx.globalAlpha=a;ctx.fill();
+      }
+      ctx.globalAlpha=this.life;
+      ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+      ctx.fillStyle=this.color;ctx.fill();
+      ctx.globalAlpha=1;
+    }
+  }
+  class Rocket{
+    constructor(){this.reset();}
+    reset(){
+      this.x=W*.1+Math.random()*W*.8;this.y=H;
+      this.vy=-(Math.random()*5+5);this.vx=(Math.random()-.5)*1.5;
+      this.targetY=H*.1+Math.random()*H*.4;
+      this.color=COLORS[Math.floor(Math.random()*COLORS.length)];
+      this.exploded=false;this.particles=[];this.life=1;
+    }
+    update(){
+      if(!this.exploded){
+        this.x+=this.vx;this.y+=this.vy;this.vy+=.12;
+        if(this.y<=this.targetY){this.explode();}
+      } else {
+        this.particles.forEach(p=>p.update());
+        this.particles=this.particles.filter(p=>p.life>0);
+        this.life-=.008;
+      }
+    }
+    explode(){
+      this.exploded=true;
+      const n=55+Math.floor(Math.random()*40);
+      for(let i=0;i<n;i++)this.particles.push(new Particle(this.x,this.y,this.color));
+      // Second burst (different color)
+      const c2=COLORS[Math.floor(Math.random()*COLORS.length)];
+      for(let i=0;i<20;i++)this.particles.push(new Particle(this.x,this.y,c2));
+    }
+    draw(){
+      if(!this.exploded){
+        ctx.beginPath();ctx.arc(this.x,this.y,2,0,Math.PI*2);
+        ctx.fillStyle='#FFF176';ctx.fill();
+        // tail
+        ctx.beginPath();ctx.moveTo(this.x,this.y);ctx.lineTo(this.x-this.vx*4,this.y-this.vy*4);
+        ctx.strokeStyle='rgba(255,241,118,.4)';ctx.lineWidth=1.5;ctx.stroke();
+      } else {
+        this.particles.forEach(p=>p.draw());
+      }
+    }
+    get done(){return this.exploded&&this.life<=0;}
+  }
+  let rockets=[];
+  let fwActive=false;
+  // Only run when duss section is visible
+  const fwObs=new IntersectionObserver(e=>{
+    fwActive=e[0].isIntersecting;
+    if(fwActive&&rockets.length===0)rockets.push(new Rocket());
+  },{threshold:.2});
+  fwObs.observe(document.getElementById('duss'));
+
+  let lastRocket=0;
+  function fwLoop(ts){
+    if(fwActive){
+      ctx.clearRect(0,0,W,H);
+      // Launch new rocket every 1.4–2.5s
+      if(ts-lastRocket>1400+Math.random()*1100){
+        rockets.push(new Rocket());lastRocket=ts;
+      }
+      rockets.forEach(r=>{r.update();r.draw();});
+      rockets=rockets.filter(r=>!r.done);
+    }
+    requestAnimationFrame(fwLoop);
+  }
+  requestAnimationFrame(fwLoop);
+})();
+
+// ====== STAGGER OBSERVER for menu grid ======
+const mgridObs=new IntersectionObserver(e=>{
+  if(e[0].isIntersecting){
+    e[0].target.querySelectorAll('.mi').forEach((mi,i)=>{
+      mi.style.animationDelay=`${i*80}ms`;
+      setTimeout(()=>mi.classList.add('pop'),i*80);
+    });
+  }
+},{threshold:.05});
+const mg=document.getElementById('mgrid');
+if(mg)mgridObs.observe(mg);
 
 // LIVE STATUS
 function chk(){
